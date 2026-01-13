@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Coffee</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // Light Mode Palette - Warm, welcoming earth tones
+                        'cream-lightest': '#EDC4B3',  // Lightest - backgrounds, cards
+                        'cream-light': '#E6B8A2',     // Light backgrounds
+                        'terracotta-light': '#DEAB90', // Subtle accents
+                        'terracotta': '#D69F7E',       // Secondary buttons, borders
+                        'clay': '#CD9777',             // Hover states
+                        'clay-medium': '#C38E70',      // Text on light backgrounds
+                        'brown-medium': '#B07D62',     // Primary buttons, links
+                        'brown': '#9D6B53',            // Headings, important text
+                        'brown-dark': '#8A5A44',       // Strong emphasis
+                        'brown-darkest': '#774936',    // Highest contrast text, footer
+
+                        // Dark Mode Palette - Rich, cozy dark tones
+                        'rust-light': '#774936',       // Lightest in dark - text, icons
+                        'rust': '#6E4230',             // Headers, important text
+                        'mahogany-light': '#653A2A',   // Cards, elevated surfaces
+                        'mahogany': '#5C3324',         // Primary buttons in dark
+                        'espresso-light': '#532C1E',   // Secondary elements
+                        'espresso': '#4A2419',         // Hover states
+                        'coffee-dark': '#411D13',      // Background sections
+                        'coffee-darker': '#38160D',    // Main background
+                        'coffee-darkest': '#2F0E07',   // Footer, deepest backgrounds
+                        'almost-black': '#260701',     // Maximum contrast elements
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        /* Checkbox hack voor mobile menu */
+        #menu-toggle:checked ~ #mobile-menu {
+            display: block;
+        }
+
+        /* Language dropdown */
+        .lang-dropdown:hover .lang-menu {
+            display: block;
+        }
+
+        /* Shopping cart badge */
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #D69F7E;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .dark .cart-badge {
+            background: #033606;
+        }
+    </style>
+</head>
+<body class="bg-cream-lightest dark:bg-coffee-darker text-brown-dark dark:text-rust-light font-sans transition-colors duration-300">
+
+    <!-- Header & Navigation -->
+    <header class="bg-brown-darkest dark:bg-coffee-darkest shadow-lg sticky top-0 z-50 transition-colors duration-300">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="assets/images/logo.png" alt="Zenith Coffee Logo" class="h-12 md:h-14">
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-home">Home</a>
+                    <a href="over-ons.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-about">Over Ons</a>
+                    <a href="producten.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-products">Producten</a>
+                    <a href="contact.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-contact">Contact</a>
+                    <a href="vacatures.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-careers">Vacatures</a>
+                </div>
+
+                <!-- Right Side Icons -->
+                <div class="flex items-center gap-4">
+                    <!-- Language Selector -->
+                    <div class="relative lang-dropdown">
+                        <button class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-xl">language</span>
+                            <span class="hidden sm:inline text-sm font-medium" id="current-lang">NL</span>
+                        </button>
+                        <div class="lang-menu hidden absolute right-0 mt-2 w-32 bg-cream-lightest dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden">
+                            <button onclick="changeLanguage('nl')" class="block w-full text-left px-4 py-2 text-brown dark:text-rust-light hover:bg-terracotta-light dark:hover:bg-mahogany transition text-sm">Nederlands</button>
+                            <button onclick="changeLanguage('en')" class="block w-full text-left px-4 py-2 text-brown dark:text-rust-light hover:bg-terracotta-light dark:hover:bg-mahogany transition text-sm">English</button>
+                            <button onclick="changeLanguage('fr')" class="block w-full text-left px-4 py-2 text-brown dark:text-rust-light hover:bg-terracotta-light dark:hover:bg-mahogany transition text-sm">Français</button>
+                        </div>
+                    </div>
+
+                    <!-- Dark Mode Toggle -->
+                    <button onclick="toggleDarkMode()" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300">
+                        <span class="material-symbols-outlined text-2xl dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined text-2xl hidden dark:inline">light_mode</span>
+                    </button>
+
+                    <!-- Shopping Cart -->
+                    <a href="winkelmand.html" class="relative text-cream-light dark:text-rust-light hover:text-white transition duration-300">
+                        <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                        <span class="cart-badge">0</span>
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <div class="md:hidden">
+                        <input type="checkbox" id="menu-toggle" class="hidden">
+                        <label for="menu-toggle" class="cursor-pointer text-cream-light dark:text-rust-light hover:text-white">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-home">Home</a>
+                <a href="over-ons.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-about">Over Ons</a>
+                <a href="producten.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-products">Producten</a>
+                <a href="contact.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-contact">Contact</a>
+                <a href="vacatures.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-careers">Vacatures</a>
+                <a href="winkelmand.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-cart">Winkelkar</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="relative h-screen bg-gradient-to-br from-brown-darkest via-brown to-brown-medium dark:from-almost-black dark:via-coffee-darkest dark:to-coffee-dark flex items-center justify-center transition-colors duration-300">
+            <!-- Overlay for depth -->
+            <div class="absolute inset-0 bg-black opacity-20 dark:opacity-40"></div>
+
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <!-- Logo voor hero -->
+                <div class="mb-8 flex justify-center">
+                    <img src="assets/images/logo-2.png" alt="Zenith Coffee" class="h-32 md:h-40 drop-shadow-2xl">
+                </div>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream-lightest dark:text-rust-light mb-6" data-i18n="hero-title">
+                    Welkom bij Zenith Coffee
+                </h2>
+                <p class="text-lg sm:text-xl md:text-2xl text-cream-light dark:text-rust mb-8" data-i18n="hero-subtitle">
+                    Ontdek de perfecte koffiebeleving met onze premium selectie
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="producten.html" class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg" data-i18n="hero-cta-products">
+                        Bekijk Producten
+                    </a>
+                    <a href="over-ons.html" class="bg-transparent border-2 border-cream-lightest dark:border-rust-light hover:bg-cream-lightest hover:text-brown-darkest dark:hover:bg-rust-light dark:hover:text-almost-black text-cream-lightest dark:text-rust-light font-bold py-3 px-8 rounded-lg transition duration-300" data-i18n="hero-cta-story">
+                        Ons Verhaal
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Producten Section -->
+        <section class="py-16 px-4 bg-cream-light dark:bg-coffee-dark transition-colors duration-300">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-brown-darkest dark:text-rust-light mb-4" data-i18n="products-title">
+                        Onze Featured Producten
+                    </h2>
+                    <p class="text-lg text-brown dark:text-rust max-w-2xl mx-auto" data-i18n="products-subtitle">
+                        Handgeselecteerde premium koffiebonen van over de hele wereld
+                    </p>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                    <!-- Product 1 -->
+                    <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="h-64 bg-gradient-to-br from-terracotta-light to-clay flex items-center justify-center">
+                            <span class="text-6xl"><img src="assets/images/Zenith-koffie-2.PNG" alt=""></a></span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                                Espresso Deluxe
+                            </h3>
+                            <p class="text-brown-dark dark:text-rust mb-4">
+                                Rijke en volle body met tonen van donkere chocolade
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€12,99</span>
+                                <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
+                                    Toevoegen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="h-64 bg-gradient-to-br from-clay to-brown-medium flex items-center justify-center">
+                            <span class="text-6xl"><img src="assets/images/Zenith-koffie-4.PNG" alt=""></span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                                Smooth Arabica
+                            </h3>
+                            <p class="text-brown-dark dark:text-rust mb-4">
+                                Zachte smaak met hints van karamel en noten
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€14,99</span>
+                                <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
+                                    Toevoegen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="h-64 bg-gradient-to-br from-brown-medium to-brown flex items-center justify-center">
+                            <span class="text-6xl">☕</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                                Dark Roast Blend
+                            </h3>
+                            <p class="text-brown-dark dark:text-rust mb-4">
+                                Krachtige smaak met een intense aftertaste
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€13,99</span>
+                                <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
+                                    Toevoegen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="h-64 bg-gradient-to-br from-terracotta to-clay-medium flex items-center justify-center">
+                            <span class="text-6xl">☕</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                                Morning Sunrise
+                            </h3>
+                            <p class="text-brown-dark dark:text-rust mb-4">
+                                Lichte branding voor een frisse start van de dag
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€11,99</span>
+                                <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
+                                    Toevoegen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="h-64 bg-gradient-to-br from-cream-light to-terracotta-light flex items-center justify-center">
+                            <span class="text-6xl">☕</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                                Caramel Delight
+                            </h3>
+                            <p class="text-brown-dark dark:text-rust mb-4">
+                                Zoete noten met een vleugje vanille
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€15,99</span>
+                                <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
+                                    Toevoegen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="h-64 bg-gradient-to-br from-brown to-brown-dark flex items-center justify-center">
+                            <span class="text-6xl">☕</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                                Bold Colombian
+                            </h3>
+                            <p class="text-brown-dark dark:text-rust mb-4">
+                                Authentieke Colombiaanse koffie met karakter
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€16,99</span>
+                                <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
+                                    Toevoegen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-20 px-4 bg-gradient-to-r from-brown-darkest to-brown-dark dark:from-coffee-darkest dark:to-coffee-darker transition-colors duration-300">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-cream-lightest dark:text-rust-light mb-6" data-i18n="cta-title">
+                    Klaar om de perfecte koffie te ontdekken?
+                </h2>
+                <p class="text-lg sm:text-xl text-cream-light dark:text-rust mb-8" data-i18n="cta-subtitle">
+                    Bezoek onze winkel of bestel online voor thuisbezorging
+                </p>
+                <a href="contact.html" class="inline-block bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white font-bold py-4 px-10 rounded-lg transition duration-300 shadow-lg text-lg" data-i18n="cta-button">
+                    Neem Contact Op
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brown-darkest dark:bg-almost-black text-cream-light dark:text-rust-light py-12 px-4 transition-colors duration-300">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+                <!-- Over Zenith Coffee -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light">Zenith Coffee</h3>
+                    <p class="text-terracotta-light dark:text-rust text-sm" data-i18n="footer-about">
+                        Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.
+                    </p>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light" data-i18n="footer-contact-title">Contact</h3>
+                    <ul class="space-y-2 text-terracotta-light dark:text-rust text-sm">
+                        <li>📍 bakerstreet 33, aalst</li>
+                        <li>📞 +32 12 345 6789</li>
+                        <li>✉️ contact@zenithcoffee.be</li>
+                        <li>🕒 <span data-i18n="footer-hours">Ma-Vr: 08:00 - 18:00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Snelle Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light" data-i18n="footer-links-title">Snelle Links</h3>
+                    <ul class="space-y-2 text-terracotta-light dark:text-rust text-sm">
+                        <li><a href="over-ons.html" class="hover:text-white transition duration-300" data-i18n="nav-about">Over Ons</a></li>
+                        <li><a href="producten.html" class="hover:text-white transition duration-300" data-i18n="nav-products">Producten</a></li>
+                        <li><a href="vacatures.html" class="hover:text-white transition duration-300" data-i18n="nav-careers">Vacatures</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300" data-i18n="nav-contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light" data-i18n="footer-follow">Volg Ons</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
+                            <span class="text-xl text-white">f</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
+                            <span class="text-xl">📷</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
+                            <span class="text-xl">🐦</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn">
+                            <span class="text-xl text-white">in</span>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-semibold mb-2 text-cream-lightest dark:text-rust-light" data-i18n="footer-newsletter">Nieuwsbrief</h4>
+                        <form class="flex flex-col sm:flex-row gap-2">
+                            <input type="email" placeholder="Uw email" class="flex-1 px-4 py-2 rounded bg-cream-lightest dark:bg-mahogany text-brown-dark dark:text-rust-light focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light" data-i18n-placeholder="footer-email-placeholder">
+                            <button type="submit" class="bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white px-4 py-2 rounded font-semibold transition duration-300" data-i18n="footer-subscribe">
+                                Aanmelden
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-brown-medium dark:border-coffee-dark pt-6 text-center text-terracotta-light dark:text-rust text-sm">
+                <p data-i18n="footer-copyright">&copy; 2026 Zenith Coffee. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Language translations
+        const translations = {
+            nl: {
+                'nav-home': 'Home',
+                'nav-about': 'Over Ons',
+                'nav-products': 'Producten',
+                'nav-contact': 'Contact',
+                'nav-careers': 'Vacatures',
+                'nav-cart': 'Winkelkar',
+                'hero-title': 'Welkom bij Zenith Coffee',
+                'hero-subtitle': 'Ontdek de perfecte koffiebeleving met onze premium selectie',
+                'hero-cta-products': 'Bekijk Producten',
+                'hero-cta-story': 'Ons Verhaal',
+                'products-title': 'Onze Featured Producten',
+                'products-subtitle': 'Handgeselecteerde premium koffiebonen van over de hele wereld',
+                'add-to-cart': 'Toevoegen',
+                'cta-title': 'Klaar om de perfecte koffie te ontdekken?',
+                'cta-subtitle': 'Bezoek onze winkel of bestel online voor thuisbezorging',
+                'cta-button': 'Neem Contact Op',
+                'footer-about': 'Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.',
+                'footer-contact-title': 'Contact',
+                'footer-hours': 'Ma-Vr: 08:00 - 18:00',
+                'footer-links-title': 'Snelle Links',
+                'footer-follow': 'Volg Ons',
+                'footer-newsletter': 'Nieuwsbrief',
+                'footer-email-placeholder': 'Uw email',
+                'footer-subscribe': 'Aanmelden',
+                'footer-copyright': '© 2026 Zenith Coffee. Alle rechten voorbehouden.'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-about': 'About Us',
+                'nav-products': 'Products',
+                'nav-contact': 'Contact',
+                'nav-careers': 'Careers',
+                'nav-cart': 'Shopping Cart',
+                'hero-title': 'Welcome to Zenith Coffee',
+                'hero-subtitle': 'Discover the perfect coffee experience with our premium selection',
+                'hero-cta-products': 'View Products',
+                'hero-cta-story': 'Our Story',
+                'products-title': 'Our Featured Products',
+                'products-subtitle': 'Hand-selected premium coffee beans from around the world',
+                'add-to-cart': 'Add to Cart',
+                'cta-title': 'Ready to discover the perfect coffee?',
+                'cta-subtitle': 'Visit our store or order online for home delivery',
+                'cta-button': 'Contact Us',
+                'footer-about': 'Premium coffee for true enthusiasts. Since 2020, we deliver the finest coffee beans from around the world.',
+                'footer-contact-title': 'Contact',
+                'footer-hours': 'Mon-Fri: 08:00 - 18:00',
+                'footer-links-title': 'Quick Links',
+                'footer-follow': 'Follow Us',
+                'footer-newsletter': 'Newsletter',
+                'footer-email-placeholder': 'Your email',
+                'footer-subscribe': 'Subscribe',
+                'footer-copyright': '© 2026 Zenith Coffee. All rights reserved.'
+            },
+            fr: {
+                'nav-home': 'Accueil',
+                'nav-about': 'À Propos',
+                'nav-products': 'Produits',
+                'nav-contact': 'Contact',
+                'nav-careers': 'Carrières',
+                'nav-cart': 'Panier',
+                'hero-title': 'Bienvenue chez Zenith Coffee',
+                'hero-subtitle': 'Découvrez l\'expérience café parfaite avec notre sélection premium',
+                'hero-cta-products': 'Voir les Produits',
+                'hero-cta-story': 'Notre Histoire',
+                'products-title': 'Nos Produits Vedettes',
+                'products-subtitle': 'Grains de café premium sélectionnés à la main du monde entier',
+                'add-to-cart': 'Ajouter',
+                'cta-title': 'Prêt à découvrir le café parfait?',
+                'cta-subtitle': 'Visitez notre magasin ou commandez en ligne pour une livraison à domicile',
+                'cta-button': 'Nous Contacter',
+                'footer-about': 'Café premium pour les vrais passionnés. Depuis 2020, nous livrons les meilleurs grains de café du monde entier.',
+                'footer-contact-title': 'Contact',
+                'footer-hours': 'Lun-Ven: 08:00 - 18:00',
+                'footer-links-title': 'Liens Rapides',
+                'footer-follow': 'Suivez-Nous',
+                'footer-newsletter': 'Newsletter',
+                'footer-email-placeholder': 'Votre email',
+                'footer-subscribe': 'S\'abonner',
+                'footer-copyright': '© 2026 Zenith Coffee. Tous droits réservés.'
+            }
+        };
+
+        // Change language function
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update placeholder
+            const emailInput = document.querySelector('[data-i18n-placeholder]');
+            if (emailInput && translations[lang]['footer-email-placeholder']) {
+                emailInput.placeholder = translations[lang]['footer-email-placeholder'];
+            }
+
+            // Update current language display
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+            localStorage.setItem('language', lang);
+        }
+
+        // Load saved language
+        const savedLang = localStorage.getItem('language') || 'nl';
+        if (savedLang !== 'nl') {
+            changeLanguage(savedLang);
+        }
+    </script>
+
+</body>
+</html>
