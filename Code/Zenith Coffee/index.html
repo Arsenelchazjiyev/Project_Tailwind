@@ -4,59 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zenith Coffee</title>
+    <!-- Material Icons for icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // Tailwind Configuration - Custom Color Palette
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        // Light Mode Palette - Warm, welcoming earth tones
-                        'cream-lightest': '#EDC4B3',  // Lightest - backgrounds, cards
-                        'cream-light': '#E6B8A2',     // Light backgrounds
+                        // ===== LIGHT MODE PALETTE =====
+                        // Warm, welcoming earth tones for daytime coffee shop feel
+                        'cream-lightest': '#EDC4B3',  // Lightest - main backgrounds
+                        'cream-light': '#E6B8A2',     // Light backgrounds, subtle sections
                         'terracotta-light': '#DEAB90', // Subtle accents
-                        'terracotta': '#D69F7E',       // Secondary buttons, borders
+                        'terracotta': '#D69F7E',       // Secondary buttons, badges
                         'clay': '#CD9777',             // Hover states
-                        'clay-medium': '#C38E70',      // Text on light backgrounds
+                        'clay-medium': '#C38E70',      // Medium text
                         'brown-medium': '#B07D62',     // Primary buttons, links
-                        'brown': '#9D6B53',            // Headings, important text
-                        'brown-dark': '#8A5A44',       // Strong emphasis
-                        'brown-darkest': '#774936',    // Highest contrast text, footer
+                        'brown': '#9D6B53',            // Headings, emphasis
+                        'brown-dark': '#8A5A44',       // Body text
+                        'brown-darkest': '#774936',    // Maximum contrast text, dark backgrounds
 
-                        // Dark Mode Palette - Rich, cozy dark tones
-                        'rust-light': '#774936',       // Lightest in dark - text, icons
+                        // ===== DARK MODE PALETTE =====
+                        // Rich, cozy dark tones for evening espresso bar ambiance
+                        'rust-light': '#774936',       // Lightest text in dark mode
                         'rust': '#6E4230',             // Headers, important text
-                        'mahogany-light': '#653A2A',   // Cards, elevated surfaces
-                        'mahogany': '#5C3324',         // Primary buttons in dark
+                        'mahogany-light': '#653A2A',   // Elevated surfaces (cards)
+                        'mahogany': '#5C3324',         // Primary buttons
                         'espresso-light': '#532C1E',   // Secondary elements
                         'espresso': '#4A2419',         // Hover states
-                        'coffee-dark': '#411D13',      // Background sections
+                        'coffee-dark': '#411D13',      // Section backgrounds
                         'coffee-darker': '#38160D',    // Main background
-                        'coffee-darkest': '#2F0E07',   // Footer, deepest backgrounds
-                        'almost-black': '#260701',     // Maximum contrast elements
+                        'coffee-darkest': '#2F0E07',   // Footer, deepest sections
+                        'almost-black': '#260701',     // Maximum depth
                     }
                 }
             }
         }
     </script>
     <style type="text/tailwindcss">
-        /* Checkbox hack voor mobile menu */
+        /* ===== MOBILE MENU CHECKBOX HACK ===== */
+        /* Shows mobile menu when checkbox is checked */
         #menu-toggle:checked ~ #mobile-menu {
             display: block;
         }
 
-        /* Language dropdown */
-        .lang-dropdown:hover .lang-menu {
+        /* ===== SETTINGS DROPDOWN ===== */
+        /* Shows settings dropdown on hover - includes gap between button and menu */
+        .settings-dropdown:hover .settings-menu,
+        .settings-menu:hover {
             display: block;
         }
 
-        /* Shopping cart badge */
+        /* Prevent gap between button and dropdown */
+        .settings-menu {
+            margin-top: 0.5rem;
+        }
+
+        /* Add invisible bridge between button and menu */
+        .settings-dropdown::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 0.5rem;
+        }
+
+        /* ===== SHOPPING CART BADGE ===== */
+        /* Small notification badge on cart icon */
         .cart-badge {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #D69F7E;
+            background: #D69F7E; /* Light mode: terracotta */
             color: white;
             border-radius: 50%;
             width: 20px;
@@ -68,62 +92,98 @@
             font-weight: bold;
         }
 
+        /* Dark mode cart badge */
         .dark .cart-badge {
-            background: #033606;
+            background: #5C3324; /* Dark mode: mahogany */
         }
     </style>
 </head>
-<body class="bg-cream-lightest dark:bg-coffee-darker text-brown-dark dark:text-rust-light font-sans transition-colors duration-300">
 
-    <!-- Header & Navigation -->
+<!--
+    BODY: Main container with background and text colors
+    - bg-cream-lightest: Light mode background (soft cream)
+    - dark:bg-coffee-darker: Dark mode background (rich espresso)
+    - text-brown-darkest: Light mode text (dark for contrast on light bg)
+    - dark:text-white: Dark mode text (white for maximum contrast on dark bg)
+-->
+<body class="bg-cream-lightest dark:bg-coffee-darker text-brown-darkest dark:text-white font-sans transition-colors duration-300">
+
+    <!-- ===== HEADER & NAVIGATION ===== -->
     <header class="bg-brown-darkest dark:bg-coffee-darkest shadow-lg sticky top-0 z-50 transition-colors duration-300">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="assets/images/logo.png" alt="Zenith Coffee Logo" class="h-12 md:h-14">
+
+                <!-- LEFT SIDE: Logo -->
+                <div class="flex items-center">
+                    <!-- PLACEHOLDER: Replace with your logo -->
+                    <a href="index.html">
+                        <img src="assets/images/logo-2.png" alt="Zenith Coffee Logo" class="h-12 md:h-16">
+                    </a>
                 </div>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#home" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-home">Home</a>
-                    <a href="over-ons.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-about">Over Ons</a>
-                    <a href="producten.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-products">Producten</a>
-                    <a href="contact.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-contact">Contact</a>
-                    <a href="vacatures.html" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 font-medium" data-i18n="nav-careers">Vacatures</a>
+                <!-- CENTER: Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+                    <!-- PLACEHOLDER: Add/remove navigation links as needed -->
+                    <a href="#home" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-home">Home</a>
+                    <a href="over-ons.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-about">Over Ons</a>
+                    <a href="producten.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-products">Producten</a>
+                    <a href="contact.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-contact">Contact</a>
+                    <a href="vacatures.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-careers">Vacatures</a>
                 </div>
 
-                <!-- Right Side Icons -->
+                <!-- RIGHT SIDE: Settings & Shopping Cart -->
                 <div class="flex items-center gap-4">
-                    <!-- Language Selector -->
-                    <div class="relative lang-dropdown">
-                        <button class="text-cream-light dark:text-rust-light hover:text-white transition duration-300 flex items-center gap-1">
-                            <span class="material-symbols-outlined text-xl">language</span>
-                            <span class="hidden sm:inline text-sm font-medium" id="current-lang">NL</span>
+
+                    <!-- SETTINGS ICON WITH DROPDOWN -->
+                    <div class="relative settings-dropdown">
+                        <!-- Settings Button -->
+                        <button class="text-white hover:text-cream-light transition duration-300 flex items-center">
+                            <span class="material-symbols-outlined text-2xl">settings</span>
                         </button>
-                        <div class="lang-menu hidden absolute right-0 mt-2 w-32 bg-cream-lightest dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden">
-                            <button onclick="changeLanguage('nl')" class="block w-full text-left px-4 py-2 text-brown dark:text-rust-light hover:bg-terracotta-light dark:hover:bg-mahogany transition text-sm">Nederlands</button>
-                            <button onclick="changeLanguage('en')" class="block w-full text-left px-4 py-2 text-brown dark:text-rust-light hover:bg-terracotta-light dark:hover:bg-mahogany transition text-sm">English</button>
-                            <button onclick="changeLanguage('fr')" class="block w-full text-left px-4 py-2 text-brown dark:text-rust-light hover:bg-terracotta-light dark:hover:bg-mahogany transition text-sm">Français</button>
+
+                        <!-- Settings Dropdown Menu -->
+                        <div class="settings-menu hidden absolute right-0 mt-2 w-56 bg-white dark:bg-mahogany-light rounded-lg shadow-xl overflow-hidden border border-gray-200 dark:border-mahogany">
+                            <!-- Dark Mode Toggle -->
+                            <div class="px-4 py-3 border-b border-gray-200 dark:border-mahogany">
+                                <p class="text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="settings-theme">Thema</p>
+                                <button onclick="toggleDarkMode()" class="w-full flex items-center justify-between px-3 py-2 bg-cream-lightest dark:bg-mahogany rounded hover:bg-terracotta-light dark:hover:bg-espresso-light transition text-brown-darkest dark:text-white">
+                                    <span class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-xl dark:hidden">dark_mode</span>
+                                        <span class="material-symbols-outlined text-xl hidden dark:inline">light_mode</span>
+                                        <span class="text-sm" data-i18n="toggle-mode">Donkere Modus</span>
+                                        <span class="text-sm" data-i18n="toggle-mode">Lichte Modus</span>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Language Selector -->
+                            <div class="px-4 py-3">
+                                <p class="text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="settings-language">Taal</p>
+                                <!-- PLACEHOLDER: Add more languages if needed -->
+                                <button onclick="changeLanguage('nl')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">
+                                    🇳🇱 Nederlands
+                                </button>
+                                <button onclick="changeLanguage('en')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">
+                                    🇬🇧 English
+                                </button>
+                                <button onclick="changeLanguage('fr')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">
+                                    🇫🇷 Français
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Dark Mode Toggle -->
-                    <button onclick="toggleDarkMode()" class="text-cream-light dark:text-rust-light hover:text-white transition duration-300">
-                        <span class="material-symbols-outlined text-2xl dark:hidden">dark_mode</span>
-                        <span class="material-symbols-outlined text-2xl hidden dark:inline">light_mode</span>
-                    </button>
-
-                    <!-- Shopping Cart -->
-                    <a href="winkelmand.html" class="relative text-cream-light dark:text-rust-light hover:text-white transition duration-300">
+                    <!-- SHOPPING CART ICON -->
+                    <a href="winkelmand.html" class="relative text-white hover:text-cream-light transition duration-300">
                         <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                        <!-- PLACEHOLDER: Update cart item count dynamically -->
                         <span class="cart-badge">0</span>
                     </a>
 
-                    <!-- Mobile Menu Toggle -->
+                    <!-- MOBILE MENU TOGGLE (Hamburger) -->
                     <div class="md:hidden">
                         <input type="checkbox" id="menu-toggle" class="hidden">
-                        <label for="menu-toggle" class="cursor-pointer text-cream-light dark:text-rust-light hover:text-white">
+                        <label for="menu-toggle" class="cursor-pointer text-white hover:text-cream-light">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
@@ -132,56 +192,71 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="#home" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-home">Home</a>
-                <a href="over-ons.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-about">Over Ons</a>
-                <a href="producten.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-products">Producten</a>
-                <a href="contact.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-contact">Contact</a>
-                <a href="vacatures.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-careers">Vacatures</a>
-                <a href="winkelmand.html" class="block py-2 text-cream-light dark:text-rust-light hover:text-white transition duration-300" data-i18n="nav-cart">Winkelkar</a>
+            <!-- MOBILE MENU (Hidden by default, shown when hamburger is clicked) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-brown-medium dark:border-coffee-dark pt-4">
+                <!-- PLACEHOLDER: Mobile navigation links -->
+                <a href="#home" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-home">Home</a>
+                <a href="over-ons.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-about">Over Ons</a>
+                <a href="producten.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-products">Producten</a>
+                <a href="contact.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-contact">Contact</a>
+                <a href="vacatures.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-careers">Vacatures</a>
+                <a href="winkelmand.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-cart">Winkelkar</a>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
+    <!-- ===== MAIN CONTENT ===== -->
     <main>
 
-        <!-- Hero Section -->
+        <!-- ===== HERO SECTION ===== -->
+        <!-- Full-screen hero with gradient background and centered content -->
         <section class="relative h-screen bg-gradient-to-br from-brown-darkest via-brown to-brown-medium dark:from-almost-black dark:via-coffee-darkest dark:to-coffee-dark flex items-center justify-center transition-colors duration-300">
-            <!-- Overlay for depth -->
+
+            <!-- Overlay for added depth -->
             <div class="absolute inset-0 bg-black opacity-20 dark:opacity-40"></div>
 
+            <!-- Hero Content -->
             <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-                <!-- Logo voor hero -->
+
+                <!-- PLACEHOLDER: Hero Logo -->
                 <div class="mb-8 flex justify-center">
                     <img src="assets/images/logo-2.png" alt="Zenith Coffee" class="h-32 md:h-40 drop-shadow-2xl">
                 </div>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream-lightest dark:text-rust-light mb-6" data-i18n="hero-title">
+
+                <!-- PLACEHOLDER: Main Heading -->
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6" data-i18n="hero-title">
                     Welkom bij Zenith Coffee
                 </h2>
-                <p class="text-lg sm:text-xl md:text-2xl text-cream-light dark:text-rust mb-8" data-i18n="hero-subtitle">
+
+                <!-- PLACEHOLDER: Subtitle -->
+                <p class="text-lg sm:text-xl md:text-2xl text-cream-light mb-8" data-i18n="hero-subtitle">
                     Ontdek de perfecte koffiebeleving met onze premium selectie
                 </p>
+
+                <!-- PLACEHOLDER: Call-to-Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="producten.html" class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg" data-i18n="hero-cta-products">
                         Bekijk Producten
                     </a>
-                    <a href="over-ons.html" class="bg-transparent border-2 border-cream-lightest dark:border-rust-light hover:bg-cream-lightest hover:text-brown-darkest dark:hover:bg-rust-light dark:hover:text-almost-black text-cream-lightest dark:text-rust-light font-bold py-3 px-8 rounded-lg transition duration-300" data-i18n="hero-cta-story">
+                    <a href="over-ons.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-brown-darkest text-white font-bold py-3 px-8 rounded-lg transition duration-300" data-i18n="hero-cta-story">
                         Ons Verhaal
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Producten Section -->
+        <!-- ===== FEATURED PRODUCTS SECTION ===== -->
         <section class="py-16 px-4 bg-cream-light dark:bg-coffee-dark transition-colors duration-300">
             <div class="container mx-auto max-w-7xl">
+
+                <!-- Section Header -->
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-brown-darkest dark:text-rust-light mb-4" data-i18n="products-title">
+                    <!-- PLACEHOLDER: Section Title -->
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-brown-darkest dark:text-white mb-4" data-i18n="products-title">
                         Onze Featured Producten
                     </h2>
-                    <p class="text-lg text-brown dark:text-rust max-w-2xl mx-auto" data-i18n="products-subtitle">
+                    <!-- PLACEHOLDER: Section Subtitle -->
+                    <p class="text-lg text-brown dark:text-rust-light max-w-2xl mx-auto" data-i18n="products-subtitle">
                         Handgeselecteerde premium koffiebonen van over de hele wereld
                     </p>
                 </div>
@@ -189,20 +264,31 @@
                 <!-- Product Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
-                    <!-- Product 1 -->
+                    <!-- ===== PRODUCT CARD 1 ===== -->
+                    <!-- PLACEHOLDER: Duplicate this card structure for more products -->
                     <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+
+                        <!-- Product Image -->
                         <div class="h-64 bg-gradient-to-br from-terracotta-light to-clay flex items-center justify-center">
-                            <span class="text-6xl"><img src="assets/images/Zenith-koffie-2.PNG" alt=""></a></span>
+                            <!-- PLACEHOLDER: Replace with your product image -->
+                            <img src="assets/images/Zenith-koffie-2.PNG" alt="Espresso Deluxe" class="h-full w-full object-cover">
                         </div>
+
+                        <!-- Product Info -->
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                            <!-- PLACEHOLDER: Product Name -->
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">
                                 Espresso Deluxe
                             </h3>
-                            <p class="text-brown-dark dark:text-rust mb-4">
+                            <!-- PLACEHOLDER: Product Description -->
+                            <p class="text-brown-dark dark:text-rust-light mb-4">
                                 Rijke en volle body met tonen van donkere chocolade
                             </p>
+                            <!-- Price and Add to Cart Button -->
                             <div class="flex items-center justify-between">
+                                <!-- PLACEHOLDER: Product Price -->
                                 <span class="text-2xl font-bold text-brown-darkest dark:text-terracotta">€12,99</span>
+                                <!-- PLACEHOLDER: Add to Cart Button -->
                                 <button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-semibold py-2 px-4 rounded transition duration-300" data-i18n="add-to-cart">
                                     Toevoegen
                                 </button>
@@ -210,16 +296,17 @@
                         </div>
                     </div>
 
-                    <!-- Product 2 -->
+                    <!-- ===== PRODUCT CARD 2 ===== -->
                     <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
                         <div class="h-64 bg-gradient-to-br from-clay to-brown-medium flex items-center justify-center">
-                            <span class="text-6xl"><img src="assets/images/Zenith-koffie-4.PNG" alt=""></span>
+                            <!-- PLACEHOLDER: Product image -->
+                            <img src="assets/images/Zenith-koffie-4.PNG" alt="Smooth Arabica" class="h-full w-full object-cover">
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">
                                 Smooth Arabica
                             </h3>
-                            <p class="text-brown-dark dark:text-rust mb-4">
+                            <p class="text-brown-dark dark:text-rust-light mb-4">
                                 Zachte smaak met hints van karamel en noten
                             </p>
                             <div class="flex items-center justify-between">
@@ -231,16 +318,17 @@
                         </div>
                     </div>
 
-                    <!-- Product 3 -->
+                    <!-- ===== PRODUCT CARD 3 ===== -->
                     <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
                         <div class="h-64 bg-gradient-to-br from-brown-medium to-brown flex items-center justify-center">
+                            <!-- PLACEHOLDER: Product image -->
                             <span class="text-6xl">☕</span>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">
                                 Dark Roast Blend
                             </h3>
-                            <p class="text-brown-dark dark:text-rust mb-4">
+                            <p class="text-brown-dark dark:text-rust-light mb-4">
                                 Krachtige smaak met een intense aftertaste
                             </p>
                             <div class="flex items-center justify-between">
@@ -252,16 +340,17 @@
                         </div>
                     </div>
 
-                    <!-- Product 4 -->
+                    <!-- ===== PRODUCT CARD 4 ===== -->
                     <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
                         <div class="h-64 bg-gradient-to-br from-terracotta to-clay-medium flex items-center justify-center">
+                            <!-- PLACEHOLDER: Product image -->
                             <span class="text-6xl">☕</span>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">
                                 Morning Sunrise
                             </h3>
-                            <p class="text-brown-dark dark:text-rust mb-4">
+                            <p class="text-brown-dark dark:text-rust-light mb-4">
                                 Lichte branding voor een frisse start van de dag
                             </p>
                             <div class="flex items-center justify-between">
@@ -273,16 +362,17 @@
                         </div>
                     </div>
 
-                    <!-- Product 5 -->
+                    <!-- ===== PRODUCT CARD 5 ===== -->
                     <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
                         <div class="h-64 bg-gradient-to-br from-cream-light to-terracotta-light flex items-center justify-center">
+                            <!-- PLACEHOLDER: Product image -->
                             <span class="text-6xl">☕</span>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">
                                 Caramel Delight
                             </h3>
-                            <p class="text-brown-dark dark:text-rust mb-4">
+                            <p class="text-brown-dark dark:text-rust-light mb-4">
                                 Zoete noten met een vleugje vanille
                             </p>
                             <div class="flex items-center justify-between">
@@ -294,16 +384,17 @@
                         </div>
                     </div>
 
-                    <!-- Product 6 -->
+                    <!-- ===== PRODUCT CARD 6 ===== -->
                     <div class="bg-white dark:bg-mahogany-light rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
                         <div class="h-64 bg-gradient-to-br from-brown to-brown-dark flex items-center justify-center">
+                            <!-- PLACEHOLDER: Product image -->
                             <span class="text-6xl">☕</span>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-brown-darkest dark:text-rust-light mb-2">
+                            <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">
                                 Bold Colombian
                             </h3>
-                            <p class="text-brown-dark dark:text-rust mb-4">
+                            <p class="text-brown-dark dark:text-rust-light mb-4">
                                 Authentieke Colombiaanse koffie met karakter
                             </p>
                             <div class="flex items-center justify-between">
@@ -315,19 +406,24 @@
                         </div>
                     </div>
 
+                    <!-- PLACEHOLDER: Add more product cards here by duplicating the structure above -->
+
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action Section -->
+        <!-- ===== CALL TO ACTION SECTION ===== -->
         <section class="py-20 px-4 bg-gradient-to-r from-brown-darkest to-brown-dark dark:from-coffee-darkest dark:to-coffee-darker transition-colors duration-300">
             <div class="container mx-auto max-w-4xl text-center">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-cream-lightest dark:text-rust-light mb-6" data-i18n="cta-title">
+                <!-- PLACEHOLDER: CTA Heading -->
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="cta-title">
                     Klaar om de perfecte koffie te ontdekken?
                 </h2>
-                <p class="text-lg sm:text-xl text-cream-light dark:text-rust mb-8" data-i18n="cta-subtitle">
+                <!-- PLACEHOLDER: CTA Subtitle -->
+                <p class="text-lg sm:text-xl text-cream-light mb-8" data-i18n="cta-subtitle">
                     Bezoek onze winkel of bestel online voor thuisbezorging
                 </p>
+                <!-- PLACEHOLDER: CTA Button -->
                 <a href="contact.html" class="inline-block bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white font-bold py-4 px-10 rounded-lg transition duration-300 shadow-lg text-lg" data-i18n="cta-button">
                     Neem Contact Op
                 </a>
@@ -336,23 +432,26 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-brown-darkest dark:bg-almost-black text-cream-light dark:text-rust-light py-12 px-4 transition-colors duration-300">
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-brown-darkest dark:bg-almost-black text-white py-12 px-4 transition-colors duration-300">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
 
-                <!-- Over Zenith Coffee -->
+                <!-- FOOTER COLUMN 1: About -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light">Zenith Coffee</h3>
-                    <p class="text-terracotta-light dark:text-rust text-sm" data-i18n="footer-about">
+                    <!-- PLACEHOLDER: Company name -->
+                    <h3 class="text-xl font-bold mb-4">Zenith Coffee</h3>
+                    <!-- PLACEHOLDER: Company description -->
+                    <p class="text-cream-light text-sm" data-i18n="footer-about">
                         Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.
                     </p>
                 </div>
 
-                <!-- Contact Info -->
+                <!-- FOOTER COLUMN 2: Contact Info -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light" data-i18n="footer-contact-title">Contact</h3>
-                    <ul class="space-y-2 text-terracotta-light dark:text-rust text-sm">
+                    <h3 class="text-xl font-bold mb-4" data-i18n="footer-contact-title">Contact</h3>
+                    <!-- PLACEHOLDER: Contact information -->
+                    <ul class="space-y-2 text-cream-light text-sm">
                         <li>📍 bakerstreet 33, aalst</li>
                         <li>📞 +32 12 345 6789</li>
                         <li>✉️ contact@zenithcoffee.be</li>
@@ -360,10 +459,11 @@
                     </ul>
                 </div>
 
-                <!-- Snelle Links -->
+                <!-- FOOTER COLUMN 3: Quick Links -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light" data-i18n="footer-links-title">Snelle Links</h3>
-                    <ul class="space-y-2 text-terracotta-light dark:text-rust text-sm">
+                    <h3 class="text-xl font-bold mb-4" data-i18n="footer-links-title">Snelle Links</h3>
+                    <!-- PLACEHOLDER: Quick navigation links -->
+                    <ul class="space-y-2 text-cream-light text-sm">
                         <li><a href="over-ons.html" class="hover:text-white transition duration-300" data-i18n="nav-about">Over Ons</a></li>
                         <li><a href="producten.html" class="hover:text-white transition duration-300" data-i18n="nav-products">Producten</a></li>
                         <li><a href="vacatures.html" class="hover:text-white transition duration-300" data-i18n="nav-careers">Vacatures</a></li>
@@ -371,10 +471,11 @@
                     </ul>
                 </div>
 
-                <!-- Social Media -->
+                <!-- FOOTER COLUMN 4: Social Media & Newsletter -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-cream-lightest dark:text-rust-light" data-i18n="footer-follow">Volg Ons</h3>
-                    <div class="flex space-x-4">
+                    <h3 class="text-xl font-bold mb-4" data-i18n="footer-follow">Volg Ons</h3>
+                    <!-- PLACEHOLDER: Social media links -->
+                    <div class="flex space-x-4 mb-6">
                         <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
                             <span class="text-xl text-white">f</span>
                         </a>
@@ -388,10 +489,12 @@
                             <span class="text-xl text-white">in</span>
                         </a>
                     </div>
-                    <div class="mt-6">
-                        <h4 class="font-semibold mb-2 text-cream-lightest dark:text-rust-light" data-i18n="footer-newsletter">Nieuwsbrief</h4>
+
+                    <!-- PLACEHOLDER: Newsletter signup -->
+                    <div>
+                        <h4 class="font-semibold mb-2" data-i18n="footer-newsletter">Nieuwsbrief</h4>
                         <form class="flex flex-col sm:flex-row gap-2">
-                            <input type="email" placeholder="Uw email" class="flex-1 px-4 py-2 rounded bg-cream-lightest dark:bg-mahogany text-brown-dark dark:text-rust-light focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light" data-i18n-placeholder="footer-email-placeholder">
+                            <input type="email" placeholder="Uw email" class="flex-1 px-4 py-2 rounded bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light" data-i18n-placeholder="footer-email-placeholder">
                             <button type="submit" class="bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white px-4 py-2 rounded font-semibold transition duration-300" data-i18n="footer-subscribe">
                                 Aanmelden
                             </button>
@@ -402,43 +505,63 @@
             </div>
 
             <!-- Copyright -->
-            <div class="border-t border-brown-medium dark:border-coffee-dark pt-6 text-center text-terracotta-light dark:text-rust text-sm">
+            <div class="border-t border-brown-medium dark:border-coffee-dark pt-6 text-center text-cream-light text-sm">
+                <!-- PLACEHOLDER: Copyright text -->
                 <p data-i18n="footer-copyright">&copy; 2026 Zenith Coffee. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Dark Mode Toggle
+        // ===== DARK MODE TOGGLE FUNCTION =====
+        // Toggles between light and dark mode
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
+            // Save preference to localStorage
             localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
         }
 
-        // Load dark mode preference
+        // Load dark mode preference on page load
         if (localStorage.getItem('darkMode') === 'true') {
             document.documentElement.classList.add('dark');
         }
 
-        // Language translations
+        // ===== LANGUAGE TRANSLATIONS =====
+        // PLACEHOLDER: Add more translations as needed
         const translations = {
             nl: {
+                // Navigation
                 'nav-home': 'Home',
                 'nav-about': 'Over Ons',
                 'nav-products': 'Producten',
                 'nav-contact': 'Contact',
                 'nav-careers': 'Vacatures',
                 'nav-cart': 'Winkelkar',
+
+                // Settings
+                'settings-theme': 'Thema',
+                'settings-language': 'Taal',
+                'toggle-mode': 'Donkere Modus',
+                'toggle-mode': 'Lichte Modus',
+
+                // Hero
                 'hero-title': 'Welkom bij Zenith Coffee',
                 'hero-subtitle': 'Ontdek de perfecte koffiebeleving met onze premium selectie',
                 'hero-cta-products': 'Bekijk Producten',
                 'hero-cta-story': 'Ons Verhaal',
+
+                // Products
                 'products-title': 'Onze Featured Producten',
                 'products-subtitle': 'Handgeselecteerde premium koffiebonen van over de hele wereld',
                 'add-to-cart': 'Toevoegen',
+
+                // CTA
                 'cta-title': 'Klaar om de perfecte koffie te ontdekken?',
                 'cta-subtitle': 'Bezoek onze winkel of bestel online voor thuisbezorging',
                 'cta-button': 'Neem Contact Op',
+
+                // Footer
                 'footer-about': 'Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.',
                 'footer-contact-title': 'Contact',
                 'footer-hours': 'Ma-Vr: 08:00 - 18:00',
@@ -456,6 +579,9 @@
                 'nav-contact': 'Contact',
                 'nav-careers': 'Careers',
                 'nav-cart': 'Shopping Cart',
+                'settings-theme': 'Theme',
+                'settings-language': 'Language',
+                'toggle-mode': 'Dark Mode',
                 'hero-title': 'Welcome to Zenith Coffee',
                 'hero-subtitle': 'Discover the perfect coffee experience with our premium selection',
                 'hero-cta-products': 'View Products',
@@ -483,6 +609,9 @@
                 'nav-contact': 'Contact',
                 'nav-careers': 'Carrières',
                 'nav-cart': 'Panier',
+                'settings-theme': 'Thème',
+                'settings-language': 'Langue',
+                'toggle-mode': 'Mode Sombre',
                 'hero-title': 'Bienvenue chez Zenith Coffee',
                 'hero-subtitle': 'Découvrez l\'expérience café parfaite avec notre sélection premium',
                 'hero-cta-products': 'Voir les Produits',
@@ -505,8 +634,9 @@
             }
         };
 
-        // Change language function
+        // ===== CHANGE LANGUAGE FUNCTION =====
         function changeLanguage(lang) {
+            // Update all elements with data-i18n attribute
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -515,18 +645,17 @@
                 }
             });
 
-            // Update placeholder
+            // Update input placeholders
             const emailInput = document.querySelector('[data-i18n-placeholder]');
             if (emailInput && translations[lang]['footer-email-placeholder']) {
                 emailInput.placeholder = translations[lang]['footer-email-placeholder'];
             }
 
-            // Update current language display
-            document.getElementById('current-lang').textContent = lang.toUpperCase();
+            // Save language preference
             localStorage.setItem('language', lang);
         }
 
-        // Load saved language
+        // Load saved language on page load
         const savedLang = localStorage.getItem('language') || 'nl';
         if (savedLang !== 'nl') {
             changeLanguage(savedLang);
