@@ -59,9 +59,9 @@
                             </div>
                             <div class="px-4 py-3">
                                 <p class="text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="settings-language">Taal</p>
-                                <button onclick="changeLanguage('nl')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">🇳🇱 Nederlands</button>
-                                <button onclick="changeLanguage('en')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">🇬🇧 English</button>
-                                <button onclick="changeLanguage('fr')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">🇫🇷 Français</button>
+                                <button onclick="changeLanguage('nl')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">Nederlands</button>
+                                <button onclick="changeLanguage('en')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">English</button>
+                                <button onclick="changeLanguage('fr')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">Français</button>
                             </div>
                         </div>
                     </div>
@@ -89,15 +89,6 @@
     </header>
 
     <main>
-        <!-- HERO -->
-        <section class="relative py-16 px-4 bg-gradient-to-br from-brown-darkest via-brown to-brown-medium dark:from-almost-black dark:via-coffee-darkest dark:to-coffee-dark transition-colors duration-300">
-            <div class="absolute inset-0 bg-black opacity-20 dark:opacity-40"></div>
-            <div class="relative z-10 container mx-auto max-w-4xl text-center">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4" data-i18n="cart-title">Uw Winkelkar</h1>
-                <p class="text-lg text-cream-light" data-i18n="cart-subtitle">3 items in uw winkelkar</p>
-            </div>
-        </section>
-
         <!-- CART CONTENT -->
         <section class="py-16 px-4 bg-cream-light dark:bg-coffee-dark transition-colors duration-300">
             <div class="container mx-auto max-w-7xl">
@@ -106,16 +97,40 @@
                     <!-- LEFT: CART ITEMS -->
                     <div class="lg:col-span-2 space-y-4">
 
-                        <!-- FREE SHIPPING & GIFT NOTIFICATION -->
-                        <div class="bg-gradient-to-r from-terracotta to-brown-medium dark:from-mahogany to-espresso-light p-4 rounded-lg shadow-lg">
-                            <div class="flex items-center gap-3 text-white">
-                                <span class="material-symbols-outlined text-3xl">celebration</span>
-                                <div>
-                                    <p class="font-bold text-lg" data-i18n="cart-congrats">Gefeliciteerd!</p>
-                                    <p class="text-sm" data-i18n="cart-free-shipping">Je krijgt gratis verzending en een gratis tote bag cadeau!</p>
-                                </div>
+                    <!-- FREE SHIPPING & GIFT NOTIFICATION -->
+            <div class="rounded-lg shadow-lg overflow-hidden border-2 border-terracotta dark:border-mahogany bg-white dark:bg-espresso">          
+                <div class="bg-terracotta dark:bg-mahogany p-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <span class="material-symbols-outlined text-3xl">celebration</span>
+                        <div>
+                            <p class="font-bold text-lg" data-i18n="cart-congrats">Gefeliciteerd!</p>
+                            <p class="text-sm opacity-95" data-i18n="cart-free-shipping">Je krijgt gratis verzending en een gratis tote bag cadeau!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-terracotta dark:bg-mahogany p-6 flex flex-col sm:flex-row gap-6">
+                    <div class="w-full sm:w-32 h-32 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden relative">
+                        <img src="assets/images/tote-bag.png" alt="Zenith Coffee Tote Bag" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-terracotta dark:text-cream-lightest text-sm">redeem</span>
+                            <span class="text-sm font-bold text-terracotta dark:text-cream-lightest uppercase tracking-wide" data-i18n="free-gift">Gratis Cadeau!</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">Zenith Coffee Tote Bag</h3>
+                        <p class="text-brown-dark dark:text-cream-light text-sm mb-4">Duurzame katoenen tas voor al je koffiebenodigdheden</p>        
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm text-brown-dark dark:text-cream-light">Aantal: 1</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg line-through text-brown-dark dark:text-rust">€12,99</span>
+                                <span class="text-2xl font-bold text-green-600 dark:text-green-400">GRATIS</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
                         <!-- CART ITEM 1 -->
                         <!-- Material Design: Elevated card with Level 1 elevation, 12dp border radius -->
@@ -184,28 +199,6 @@
                             <button onclick="removeItem(3)" class="text-brown-dark dark:text-cream-light hover:text-brown-darkest dark:hover:text-white transition">
                                 <span class="material-symbols-outlined">delete</span>
                             </button>
-                        </div>
-
-                        <!-- FREE GIFT: TOTE BAG -->
-                        <div class="bg-gradient-to-r from-terracotta-light to-cream-light dark:from-mahogany to-espresso border-2 border-terracotta dark:border-mahogany rounded-lg shadow-lg p-6 flex flex-col sm:flex-row gap-6">
-                            <div class="w-full sm:w-32 h-32 bg-gradient-to-br from-terracotta to-clay rounded-lg flex items-center justify-center flex-shrink-0">
-                                <span class="material-symbols-outlined text-6xl text-white"><img src="assets/images/tote-bag.png" alt=""></span>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span class="material-symbols-outlined text-terracotta dark:text-cream-lightest">celebration</span>
-                                    <span class="text-sm font-bold text-terracotta dark:text-cream-lightest uppercase tracking-wide" data-i18n="free-gift">Gratis Cadeau!</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">Zenith Coffee Tote Bag</h3>
-                                <p class="text-brown-dark dark:text-cream-light text-sm mb-4">Duurzame katoenen tas voor al je koffiebenodigdheden</p>
-                                <div class="flex items-center gap-4">
-                                    <span class="text-sm text-brown-dark dark:text-cream-light">Aantal: 1</span>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-lg line-through text-brown-dark dark:text-rust">€12,99</span>
-                                        <span class="text-2xl font-bold text-green-600 dark:text-green-400">GRATIS</span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
