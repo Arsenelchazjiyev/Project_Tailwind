@@ -6,6 +6,8 @@
     <title>Zenith Coffee</title>
     <!-- Material Icons for icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -174,7 +176,7 @@
                     <!-- SETTINGS ICON WITH DROPDOWN -->
                     <div class="relative settings-dropdown">
                         <!-- Settings Button -->
-                        <button class="text-white hover:text-cream-light transition duration-300 flex items-center">
+                        <button aria-label="Settings" class="text-white hover:text-cream-light transition duration-300 flex items-center">
                             <span class="material-symbols-outlined text-2xl">settings</span>
                         </button>
 
@@ -210,7 +212,7 @@
                     </div>
 
                     <!-- SHOPPING CART ICON -->
-                    <a href="winkelmand.html" class="relative text-white hover:text-cream-light transition duration-300">
+                    <a href="winkelmand.html" aria-label="Shopping cart (3 items)" class="relative text-white hover:text-cream-light transition duration-300">
                         <span class="material-symbols-outlined text-2xl">shopping_cart</span>
                         <!-- PLACEHOLDER: Update cart item count dynamically -->
                         <span class="cart-badge">3</span>
@@ -219,7 +221,7 @@
                     <!-- MOBILE MENU TOGGLE (Hamburger) -->
                     <div class="md:hidden">
                         <input type="checkbox" id="menu-toggle" class="hidden">
-                        <label for="menu-toggle" class="cursor-pointer text-white hover:text-cream-light">
+                        <label for="menu-toggle" aria-label="Toggle menu" class="cursor-pointer text-white hover:text-cream-light">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
@@ -279,13 +281,13 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="producten.html" 
-               class="bg-amber-800 hover:bg-amber-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <a href="producten.html"
+               class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-medium py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 Bekijk Producten
             </a>
 
-            <a href="over-ons.html" 
-               class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-amber-900 font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <a href="over-ons.html"
+               class="bg-transparent border-2 border-white text-white hover:bg-terracotta-light hover:text-brown-darkest dark:hover:bg-espresso dark:hover:text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
                 Ons Verhaal
             </a>
 
@@ -476,7 +478,7 @@
         </section>
 
         <!-- ===== CALL TO ACTION SECTION ===== -->
-        <section class="py-20 px-4 bg-gradient-to-r from-brown-darkest to-brown-dark dark:from-coffee-darkest dark:to-coffee-darker transition-colors duration-300">
+        <section class="py-16 px-4 bg-gradient-to-r from-brown-darkest to-brown-dark dark:from-coffee-darkest dark:to-coffee-darker transition-colors duration-300">
             <div class="container mx-auto max-w-4xl text-center">
                 <!-- PLACEHOLDER: CTA Heading -->
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="cta-title">
@@ -542,16 +544,16 @@
                     <!-- PLACEHOLDER: Social media links -->
                     <div class="flex space-x-4 mb-6">
                         <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
-                            <span class="text-xl text-white">f</span>
+                            <i class="fab fa-facebook-f text-white"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
-                            <span class="text-xl">📷</span>
+                            <i class="fab fa-instagram text-white"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
-                            <span class="text-xl">🐦</span>
+                            <i class="fab fa-twitter text-white"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn">
-                            <span class="text-xl text-white">in</span>
+                            <i class="fab fa-linkedin-in text-white"></i>
                         </a>
                     </div>
 

@@ -22,10 +22,10 @@ const SITE_CONFIG = {
 
     // ===== SOCIAL MEDIA =====
     socialMedia: {
-        facebook: "#",
-        instagram: "#",
-        twitter: "#",
-        linkedin: "#"
+        facebook: "www.facebook.com",
+        instagram: "www.instagram.com",
+        twitter: "www.twitter.com",
+        linkedin: "www.linkedin.com"
     },
 
     // ===== LOGO & IMAGES =====

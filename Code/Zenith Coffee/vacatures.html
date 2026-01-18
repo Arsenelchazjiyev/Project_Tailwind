@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vacatures - Zenith Coffee</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -45,7 +46,7 @@
             </div>
             <div class="flex items-center gap-4">
                 <div class="relative settings-dropdown">
-                    <button class="text-white hover:text-cream-light transition duration-300 flex items-center">
+                    <button aria-label="Settings" class="text-white hover:text-cream-light transition duration-300 flex items-center">
                         <span class="material-symbols-outlined text-2xl">settings</span>
                     </button>
                     <div class="settings-menu hidden absolute right-0 mt-2 w-56 bg-white dark:bg-mahogany-light rounded-lg shadow-xl overflow-hidden border border-gray-200 dark:border-mahogany">
@@ -67,13 +68,13 @@
                         </div>
                     </div>
                 </div>
-                <a href="winkelmand.html" class="relative text-white hover:text-cream-light transition duration-300">
+                <a href="winkelmand.html" aria-label="Shopping cart (3 items)" class="relative text-white hover:text-cream-light transition duration-300">
                     <span class="material-symbols-outlined text-2xl">shopping_cart</span>
                     <span class="cart-badge">3</span>
                 </a>
                 <div class="md:hidden">
                     <input type="checkbox" id="menu-toggle" class="hidden">
-                    <label for="menu-toggle" class="cursor-pointer text-white hover:text-cream-light">
+                    <label for="menu-toggle" aria-label="Toggle menu" class="cursor-pointer text-white hover:text-cream-light">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -239,27 +240,27 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">Voornaam *</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="Jan">
+                                <input type="text" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="Jan">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">Achternaam *</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="Janssens">
+                                <input type="text" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="Janssens">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">Email *</label>
-                            <input type="email" required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="jan.janssens@email.com">
+                            <input type="email" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="jan.janssens@email.com">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">Telefoonnummer *</label>
-                            <input type="tel" required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="+32 123 45 67 89">
+                            <input type="tel" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="+32 123 45 67 89">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">Functie *</label>
-                            <select required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300">
+                            <select required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300">
                                 <option value="">Selecteer een functie</option>
                                 <option value="barista">Barista</option>
                                 <option value="roaster">Coffee Roaster</option>
@@ -271,7 +272,7 @@
 
                         <div>
                             <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">Motivatie *</label>
-                            <textarea required rows="6" class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300 resize-none" placeholder="Vertel ons waarom je bij Zenith Coffee wilt werken..."></textarea>
+                            <textarea required rows="6" class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300 resize-none" placeholder="Vertel ons waarom je bij Zenith Coffee wilt werken..."></textarea>
                         </div>
 
                         <div>
@@ -286,7 +287,7 @@
 
                         <div>
                             <label class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2">LinkedIn Profiel (optioneel)</label>
-                            <input type="url" class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-terracotta-light dark:border-mahogany focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="https://linkedin.com/in/jouw-profiel">
+                            <input type="url" class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" placeholder="https://linkedin.com/in/jouw-profiel">
                         </div>
 
                         <div class="flex items-start gap-3">
@@ -342,9 +343,10 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Volg Ons</h3>
                     <div class="flex space-x-4 mb-6">
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300"><span class="text-xl text-white">f</span></a>
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300"><span class="text-xl">📷</span></a>
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300"><span class="text-xl">🐦</span></a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-white"></i></a>
                     </div>
                     <div>
                         <h4 class="font-semibold mb-2">Nieuwsbrief</h4>

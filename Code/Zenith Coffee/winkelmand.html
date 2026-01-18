@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winkelkar - Zenith Coffee</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -45,7 +46,7 @@
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="relative settings-dropdown">
-                        <button class="text-white hover:text-cream-light transition duration-300 flex items-center"><span class="material-symbols-outlined text-2xl">settings</span></button>
+                        <button aria-label="Settings" class="text-white hover:text-cream-light transition duration-300 flex items-center"><span class="material-symbols-outlined text-2xl">settings</span></button>
                         <div class="settings-menu hidden absolute right-0 mt-2 w-56 bg-white dark:bg-mahogany-light rounded-lg shadow-xl overflow-hidden border border-gray-200 dark:border-mahogany">
                             <div class="px-4 py-3 border-b border-gray-200 dark:border-mahogany">
                                 <p class="text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="settings-theme">Thema</p>
@@ -65,13 +66,13 @@
                             </div>
                         </div>
                     </div>
-                    <a href="winkelmand.html" class="relative text-white hover:text-cream-light transition duration-300">
+                    <a href="winkelmand.html" aria-label="Shopping cart (3 items)" class="relative text-white hover:text-cream-light transition duration-300">
                         <span class="material-symbols-outlined text-2xl">shopping_cart</span>
                         <span class="cart-badge">3</span>
                     </a>
                     <div class="md:hidden">
                         <input type="checkbox" id="menu-toggle" class="hidden">
-                        <label for="menu-toggle" class="cursor-pointer text-white hover:text-cream-light">
+                        <label for="menu-toggle" aria-label="Toggle menu" class="cursor-pointer text-white hover:text-cream-light">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
@@ -109,7 +110,7 @@
                     </div>
                 </div>
 
-                <div class="bg-terracotta dark:bg-mahogany p-6 flex flex-col sm:flex-row gap-6">
+                <div class="bg-white dark:bg-mahogany-light p-6 flex flex-col sm:flex-row gap-6">
                     <div class="w-full sm:w-32 h-32 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden relative">
                         <img src="assets/images/tote-bag.png" alt="Zenith Coffee Tote Bag" class="w-full h-full object-cover">
                     </div>
@@ -120,7 +121,7 @@
                             <span class="text-sm font-bold text-terracotta dark:text-cream-lightest uppercase tracking-wide" data-i18n="free-gift">Gratis Cadeau!</span>
                         </div>
                         <h3 class="text-xl font-bold text-brown-darkest dark:text-white mb-2">Zenith Coffee Tote Bag</h3>
-                        <p class="text-brown-dark dark:text-cream-light text-sm mb-4">Duurzame katoenen tas voor al je koffiebenodigdheden</p>        
+                        <p class="text-brown-dark dark:text-cream-light text-sm mb-4">Duurzame katoenen tas voor al je koffiebenodigdheden</p>
                         <div class="flex items-center gap-4">
                             <span class="text-sm text-brown-dark dark:text-cream-light">Aantal: 1</span>
                             <div class="flex items-center gap-2">
@@ -272,7 +273,7 @@
                 <div><h3 class="text-xl font-bold mb-4">Zenith Coffee</h3><p class="text-cream-light dark:text-cream-lightest text-sm" data-i18n="footer-about">Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.</p></div>
                 <div><h3 class="text-xl font-bold mb-4" data-i18n="footer-contact-title">Contact</h3><ul class="space-y-2 text-cream-light dark:text-cream-lightest text-sm"><li>📍 Bakerstreet 33, Aalst</li><li>📞 +32 12 345 6789</li><li>✉️ contact@zenithcoffee.be</li><li>🕒 <span data-i18n="footer-hours">Ma-Vr: 08:00 - 18:00</span></li></ul></div>
                 <div><h3 class="text-xl font-bold mb-4" data-i18n="footer-links-title">Snelle Links</h3><ul class="space-y-2 text-cream-light dark:text-cream-lightest text-sm"><li><a href="over-ons.html" class="hover:text-white transition duration-300" data-i18n="nav-about">Over Ons</a></li><li><a href="producten.html" class="hover:text-white transition duration-300" data-i18n="nav-products">Producten</a></li><li><a href="vacatures.html" class="hover:text-white transition duration-300" data-i18n="nav-careers">Vacatures</a></li><li><a href="contact.html" class="hover:text-white transition duration-300" data-i18n="nav-contact">Contact</a></li></ul></div>
-                <div><h3 class="text-xl font-bold mb-4" data-i18n="footer-follow">Volg Ons</h3><div class="flex space-x-4 mb-6"><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook"><span class="text-xl text-white">f</span></a><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram"><span class="text-xl">📷</span></a><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter"><span class="text-xl">🐦</span></a><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn"><span class="text-xl text-white">in</span></a></div><div><h4 class="font-semibold mb-2" data-i18n="footer-newsletter">Nieuwsbrief</h4><form class="flex flex-col sm:flex-row gap-2"><input type="email" placeholder="Uw email" class="flex-1 px-4 py-2 rounded bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light" data-i18n-placeholder="footer-email-placeholder"><button type="submit" class="bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white px-4 py-2 rounded font-semibold transition duration-300" data-i18n="footer-subscribe">Aanmelden</button></form></div></div>
+                <div><h3 class="text-xl font-bold mb-4" data-i18n="footer-follow">Volg Ons</h3><div class="flex space-x-4 mb-6"><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter"><i class="fab fa-twitter text-white"></i></a><a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-white"></i></a></div><div><h4 class="font-semibold mb-2" data-i18n="footer-newsletter">Nieuwsbrief</h4><form class="flex flex-col sm:flex-row gap-2"><input type="email" placeholder="Uw email" class="flex-1 px-4 py-2 rounded bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light" data-i18n-placeholder="footer-email-placeholder"><button type="submit" class="bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white px-4 py-2 rounded font-semibold transition duration-300" data-i18n="footer-subscribe">Aanmelden</button></form></div></div>
             </div>
             <div class="border-t border-brown-medium dark:border-coffee-dark pt-6 text-center text-cream-light dark:text-cream-lightest text-sm"><p data-i18n="footer-copyright">&copy; 2026 Zenith Coffee. Alle rechten voorbehouden.</p></div>
         </div>
