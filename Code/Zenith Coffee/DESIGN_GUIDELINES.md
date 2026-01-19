@@ -623,6 +623,40 @@ transition-all duration-300 ease-in-out
 ### Language
 - **Language**: Dutch only
 - **Implementation**: All content in Dutch language
+
+### Code Documentation & Comments
+- **Rule**: ALL HTML files MUST contain extensive comments and documentation
+- **Purpose**: Make code easy to understand, navigate, and modify
+- **Implementation**:
+  - Use `<!-- ===== SECTION NAME ===== -->` for major sections
+  - Add descriptive comments before each component explaining its purpose
+  - Document all Material Design and Refactoring UI principles applied
+  - Explain color choices with contrast ratios in comments
+  - Document responsive breakpoints and sizing decisions
+  - Include comments for Tailwind classes explaining design decisions
+  - Add JSDoc-style comments for JavaScript functions
+
+**Example Documentation Pattern**:
+```html
+<!-- ===== HEADER NAVIGATION ===== -->
+<!-- Material Design: Sticky app bar with Level 2 elevation (shadow-lg) -->
+<!-- Background: coffee-darkest - Darkest navigation for maximum contrast -->
+<!-- Position: Sticky top with z-50 to stay above all content -->
+<header class="bg-coffee-darkest shadow-lg sticky top-0 z-50">
+    <!-- Logo Section (Left) -->
+    <div class="flex items-center">
+        <!-- Responsive logo sizing: h-12 (mobile) → h-16 (desktop) -->
+        <img src="logo.png" alt="Logo" class="h-12 md:h-16">
+    </div>
+</header>
+```
+
+**Comment Categories**:
+1. **Section Headers**: Major page sections (Header, Hero, Products, Footer)
+2. **Component Purpose**: What the component does and why it exists
+3. **Design Decisions**: Material Design level, color reasoning, spacing rationale
+4. **Responsive Behavior**: How elements adapt across breakpoints
+5. **Technical Notes**: JavaScript functionality, data attributes, special considerations
 ### Files Updated with These Guidelines
 - ✅ `index.html` - Homepage with video hero, featured products
 - ✅ `producten.html` - Products page with filtering
