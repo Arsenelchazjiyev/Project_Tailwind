@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python update_html_files.py:*)",
-      "Bash(python3:*)"
-    ]
-  }
-}

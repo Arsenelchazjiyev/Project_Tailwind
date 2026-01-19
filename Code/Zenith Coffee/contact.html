@@ -45,10 +45,7 @@
 
     <!-- ===== CUSTOM STYLES ===== -->
     <style type="text/tailwindcss">
-        /* Mobile Menu Toggle - Shows menu when checkbox is checked */
-        #menu-toggle:checked ~ #mobile-menu {
-            display: block;
-        }
+        /* Mobile menu uses Tailwind's peer modifier - no custom CSS needed */
 
         /* Shopping Cart Badge - Shows number of items in cart */
         .cart-badge {
@@ -110,29 +107,28 @@
                 </a>
 
                 <!-- Mobile Menu Toggle (Hamburger) -->
-                <div class="md:hidden">
-                    <!-- Hidden checkbox controls menu state -->
-                    <input type="checkbox" id="menu-toggle" class="hidden">
-                    <label for="menu-toggle" aria-label="Toggle menu" class="cursor-pointer text-white hover:text-cream-light">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </label>
-                </div>
+                <label for="menu-toggle" aria-label="Toggle menu" class="md:hidden cursor-pointer text-white hover:text-cream-light">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </label>
             </div>
 
-            <!-- MOBILE NAVIGATION DRAWER -->
-            <!-- Material Design: Navigation drawer with Level 3 elevation -->
-            <!-- Hidden by default, shown when checkbox is checked -->
-            <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-16 bg-coffee-darkest shadow-xl border-t border-coffee-dark py-4 px-4">
-                <!-- Mobile menu items - py-2.5 for touch-friendly 44px targets -->
-                <a href="index.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Home</a>
-                <a href="over-ons.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Over Ons</a>
-                <a href="producten.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Producten</a>
-                <a href="contact.html" class="block py-2.5 text-base text-cream-light font-semibold transition duration-300">Contact</a>
-                <a href="vacatures.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Vacatures</a>
-                <a href="winkelmand.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Winkelkar</a>
-            </div>
+                <!-- MOBILE MENU CHECKBOX (Hidden) -->
+                <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+                <!-- MOBILE NAVIGATION DRAWER -->
+                <!-- Material Design: Navigation drawer with Level 3 elevation -->
+                <!-- Hidden by default, shown when checkbox is checked -->
+                <div id="mobile-menu" class="hidden peer-checked:block md:hidden absolute left-0 right-0 top-16 bg-coffee-darkest shadow-xl border-t border-coffee-dark py-4 px-4">
+                    <!-- Mobile menu items - py-2.5 for touch-friendly 44px targets -->
+                    <a href="index.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Home</a>
+                    <a href="over-ons.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Over Ons</a>
+                    <a href="producten.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Producten</a>
+                    <a href="contact.html" class="block py-2.5 text-base text-cream-light font-semibold transition duration-300">Contact</a>
+                    <a href="vacatures.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Vacatures</a>
+                    <a href="winkelmand.html" class="block py-2.5 text-base text-white hover:text-cream-light transition duration-300">Winkelkar</a>
+                </div>
         </nav>
     </header>
 
