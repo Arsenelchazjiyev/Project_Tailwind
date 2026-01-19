@@ -18,33 +18,16 @@ Complete design system combining Material Design 3 principles and Refactoring UI
 9. [Resources](#9-resources)
 10. [Zenith Coffee Specific Guidelines](#10-zenith-coffee-specific-guidelines)
 ## 1. Overview & Design Philosophy
-### Light Mode: "Morning Coffee Shop"
-- Soft, warm, inviting cream and terracotta tones
-- Feels open, airy, approachable
-- Like sunlight streaming through café windows
-### Dark Mode: "Evening Espresso Bar"
+### "Evening Espresso Bar"
 - Rich, deep, cozy mahogany and coffee tones
 - Feels intimate, focused, sophisticated
 - Like a dimly-lit artisan roastery at night
-**Core Philosophy**: Both modes evoke coffee culture but at different times of day, creating emotional resonance with users while maintaining perfect accessibility and usability.
+**Core Philosophy**: The design evokes coffee culture with a sophisticated evening atmosphere, creating emotional resonance with users while maintaining perfect accessibility and usability.
 ## 2. Color Palette
-### Light Mode Palette (Warm & Welcoming)
+### Standard Color Palette (Cozy & Rich)
 ```
-#EDC4B3 (cream-lightest)  → Main backgrounds, lightest cards
-#E6B8A2 (cream-light)      → Section backgrounds, nav text
-#DEAB90 (terracotta-light) → Subtle accents, hover highlights
-#D69F7E (terracotta)       → Secondary buttons, cart badge
-#CD9777 (clay)             → Hover states, interactive elements
-#C38E70 (clay-medium)      → Body text on light backgrounds
-#B07D62 (brown-medium)     → Primary buttons, important links
-#9D6B53 (brown)            → Headings, strong emphasis
-#8A5A44 (brown-dark)       → Body text, high contrast
-#774936 (brown-darkest)    → Header/footer backgrounds, maximum contrast text
-```
-### Dark Mode Palette (Cozy & Rich)
-```
-#774936 (rust-light)       → Primary text, nav links (lightest for contrast)
-#6E4230 (rust)             → Headings, secondary text
+#EDC4B3 (cream-lightest)   → Primary text, headings (lightest for contrast)
+#E6B8A2 (cream-light)      → Secondary text, nav links
 #653A2A (mahogany-light)   → Card backgrounds, elevated surfaces
 #5C3324 (mahogany)         → Primary buttons, interactive elements
 #532C1E (espresso-light)   → Secondary buttons, accents
@@ -54,75 +37,46 @@ Complete design system combining Material Design 3 principles and Refactoring UI
 #2F0E07 (coffee-darkest)   → Footer, deep backgrounds
 #260701 (almost-black)     → Maximum depth, hero overlay
 ```
-### ✨ The Magic: Color Inversion
-Notice that `#774936` appears in BOTH palettes:
-- **Light Mode**: It's the DARKEST color (brown-darkest) - used for text, footer
-- **Dark Mode**: It's the LIGHTEST color (rust-light) - used for text, headers
-This creates a beautiful symmetry where the palette "flips" but maintains visual consistency. Users subconsciously recognize the same color serving opposite purposes, making the mode switch feel natural and intentional rather than jarring.
 ## 3. Color Application Logic (Color Theory)
 ### 1. HEADER/NAVIGATION
-- **Light**: `brown-darkest (#774936)` - Strong contrast anchor at top
-- **Dark**: `coffee-darkest (#2F0E07)` - Deep, grounding element
-- **Text**: Light uses `cream-light`, Dark uses `white` (highest contrast)
+- **Background**: `coffee-darkest (#2F0E07)` - Deep, grounding element
+- **Text**: `white` (highest contrast)
 - **Rationale**: Navigation needs maximum readability and serves as visual anchor
 ### 2. HERO SECTION
-- **Light Gradient**: `brown-darkest → brown → brown-medium`
-  - Creates depth from dark edges to lighter center
-- **Dark Gradient**: `almost-black → coffee-darkest → coffee-dark`
+- **Gradient**: `almost-black → coffee-darkest → coffee-dark`
   - Dramatic depth, creates "spotlight" effect on logo/text
-- **Text**: `cream-lightest` (light mode), `white` (dark mode)
+- **Text**: `white`
 - **Rationale**: Hero needs visual drama - gradients create depth and focus attention centrally
 ### 3. MAIN CONTENT BACKGROUND
-- **Light**: `cream-lightest (#EDC4B3)` - Softest, most comfortable for eyes
-- **Dark**: `coffee-darker (#38160D)` - Rich without being harsh
+- **Background**: `coffee-darker (#38160D)` - Rich without being harsh
 - **Rationale**: Large surface areas need comfortable, low-strain colors
 ### 4. PRODUCT SECTION BACKGROUND
-- **Light**: `cream-light (#E6B8A2)` - Slightly darker to separate from hero
-- **Dark**: `coffee-dark (#411D13)` - Elevated from main background
+- **Background**: `coffee-dark (#411D13)` - Elevated from main background
 - **Rationale**: Creates visual separation between sections while maintaining hierarchy
 ### 5. PRODUCT CARDS
-- **Light**: `white` - Maximum contrast for products
-- **Dark**: `mahogany-light (#653A2A)` - Elevated, warm surface
-- **Card Gradients**:
-  - Light: Uses middle tones (`terracotta`, `clay`, `brown-medium`)
-  - Dark: Cards stand out against darker background
-- **Rationale**: Products need to "pop" - light cards on dark bg, dark cards on light bg
+- **Background**: `mahogany-light (#653A2A)` - Elevated, warm surface
+- **Rationale**: Products need to "pop" - cards stand out against darker background
 ### 6. BUTTONS (Primary)
-- **Light**: `brown-medium (#B07D62)` → Hover: `brown (#9D6B53)`
-- **Dark**: `mahogany (#5C3324)` → Hover: `espresso-light (#532C1E)`
+- **Background**: `mahogany (#5C3324)` → Hover: `espresso-light (#532C1E)`
 - **Rationale**: Mid-range colors for interactivity, hover goes darker for "press" effect
 ### 7. BUTTONS (Secondary/Outlined)
-- **Light**: Border `cream-lightest`, hover fills with `cream-lightest`
-- **Dark**: Border `rust-light`, hover fills with `rust-light`
+- **Border**: `cream-light`, hover fills with `cream-light`
 - **Rationale**: Outlined buttons are less prominent, use lighter borders
-### 8. TEXT HIERARCHY (Updated with Refactoring UI principles)
-- **Headings**:
-  - Light: `brown-darkest (#774936)` - Maximum contrast (7.2:1)
-  - Dark: `white (#FFFFFF)` - Maximum contrast (13.5:1) ✓ *Refactoring UI: Flip the contrast*
-- **Body Text**:
-  - Light: `brown-dark (#8A5A44)` - High readability (5.8:1)
-  - Dark: `cream-lightest (#EDC4B3)` - Crisp and clear (8.2:1) ✓ *Refactoring UI: Use same hue family*
-- **Secondary Text**:
-  - Light: `brown (#9D6B53)` - Less emphasis (4.9:1)
-  - Dark: `cream-light (#E6B8A2)` - Softer but readable (7.1:1) ✓ *Refactoring UI: No grey on colored backgrounds*
-- **Rationale**: Text contrast ratios now exceed WCAG AAA standards (7:1+) in dark mode thanks to Refactoring UI principles
+### 8. TEXT HIERARCHY (Refactoring UI principles)
+- **Headings**: `white (#FFFFFF)` - Maximum contrast (13.5:1) ✓
+- **Body Text**: `cream-lightest (#EDC4B3)` - Crisp and clear (8.2:1) ✓
+- **Secondary Text**: `cream-light (#E6B8A2)` - Softer but readable (7.1:1) ✓
+- **Rationale**: Text contrast ratios exceed WCAG AAA standards (7:1+)
 ### 9. CTA SECTION
-- **Light Gradient**: `brown-darkest → brown-dark`
-- **Dark Gradient**: `coffee-darkest → coffee-darker`
-- **Button**:
-  - Light: `terracotta (#D69F7E)` - Pops against dark background
-  - Dark: `mahogany (#5C3324)` - Warm contrast
+- **Gradient**: `coffee-darkest → coffee-darker`
+- **Button**: `mahogany (#5C3324)` - Warm contrast
 - **Rationale**: Dark background makes CTA stand out, button uses contrasting warmth
 ### 10. FOOTER
-- **Light**: `brown-darkest (#774936)` - Grounds the page
-- **Dark**: `almost-black (#260701)` - Deepest depth, final anchor
-- **Text**:
-  - Light: `cream-light` / `terracotta-light` for hierarchy
-  - Dark: `cream-lightest` / `cream-light` for hierarchy
+- **Background**: `almost-black (#260701)` - Deepest depth, final anchor
+- **Text**: `cream-lightest` / `cream-light` for hierarchy
 - **Rationale**: Footer is heaviest element, uses darkest colors to anchor page
 ### 11. SHOPPING CART BADGE
-- **Light**: `terracotta (#D69F7E)` - Warm, noticeable accent
-- **Dark**: `mahogany (#5C3324)` - Rich, visible but not jarring
+- **Background**: `mahogany (#5C3324)` - Rich, visible but not jarring
 - **Rationale**: Needs to be noticeable but not overwhelming
 ## 🎯 Key Color Theory Principles Applied
 ### 1. Contrast Hierarchy
@@ -132,13 +86,11 @@ This creates a beautiful symmetry where the palette "flips" but maintains visual
 ### 2. Visual Weight Distribution
 - Darkest colors at top (header) and bottom (footer) create "frame"
 - Lighter colors in middle create "canvas"
-- In dark mode, this inverts but maintains same psychological weight
 ### 3. Progressive Depth
 - Gradients always flow from darker to lighter (or vice versa) gradually
 - No harsh jumps - maximum 2-3 steps in palette between adjacent colors
 ### 4. Complementary Warmth
-- Light mode: Warm peachy/cream tones (welcoming, coffee shop atmosphere)
-- Dark mode: Rich espresso/mahogany tones (cozy, evening ambiance)
+- Rich espresso/mahogany tones (cozy, evening ambiance)
 ### 5. Interaction Psychology
 - Buttons use mid-range colors (not too light, not too dark)
 - Hover states are always darker (simulates "pressing down")
@@ -148,74 +100,59 @@ This creates a beautiful symmetry where the palette "flips" but maintains visual
 - Interactive elements have 3:1 minimum contrast
 - Color is never the only indicator of state
 ### 7. Semantic Consistency
-- Same hex value (#774936) serves as darkest in light mode, lightest in dark mode
-- This creates elegant "inversion" where the palette flips but feels consistent
-- Users recognize the "same" colors in different contexts
+- Consistent use of warm coffee tones throughout the design
+- Creates a cohesive and recognizable brand identity
 ## 📊 Color Usage Summary
-| Element | Light Mode | Dark Mode | Reasoning |
-|---------|------------|-----------|-----------|
-| Body BG | `#EDC4B3` | `#38160D` | Comfortable base |
-| Header BG | `#774936` | `#2F0E07` | Anchoring weight |
-| Footer BG | `#774936` | `#260701` | Maximum depth |
-| Primary Text | `#8A5A44` | `#EDC4B3` | High contrast |
-| Headings | `#774936` | `#FFFFFF` | Maximum emphasis |
-| Cards | `white` | `#653A2A` | Elevated surfaces |
-| Primary Button | `#B07D62` | `#5C3324` | Interactive mid-tone |
-| Secondary Button | `#D69F7E` | `#532C1E` | Less emphasis |
-| Hover States | Darker by 1-2 steps | Darker by 1-2 steps | Depth simulation |
-| Links | `#B07D62` | `#774936` | Visible but not jarring |
+| Element | Color | Reasoning |
+|---------|-------|-----------|
+| Body BG | `#38160D` (coffee-darker) | Comfortable base |
+| Header BG | `#2F0E07` (coffee-darkest) | Anchoring weight |
+| Footer BG | `#260701` (almost-black) | Maximum depth |
+| Primary Text | `#EDC4B3` (cream-lightest) | High contrast |
+| Headings | `#FFFFFF` (white) | Maximum emphasis |
+| Cards | `#653A2A` (mahogany-light) | Elevated surfaces |
+| Primary Button | `#5C3324` (mahogany) | Interactive mid-tone |
+| Secondary Button | `#532C1E` (espresso-light) | Less emphasis |
+| Hover States | Darker by 1-2 steps | Depth simulation |
+| Links | `#E6B8A2` (cream-light) | Visible but not jarring |
 ## 4. Refactoring UI Principles Applied
-> **Context**: After implementing Material Design 3, we discovered text readability issues in dark mode. We applied **Refactoring UI** principles by Adam Wathan and Steve Schoger to fix contrast issues while preserving the chosen color palette.
+> **Context**: We applied **Refactoring UI** principles by Adam Wathan and Steve Schoger to ensure optimal text readability while preserving the coffee-themed color palette.
 ### Core Principle: Don't Use Grey Text on Colored Backgrounds
 > **"Make the text closer to the background color, not grey. Pick colors based on the background hue and adjust saturation and lightness."** - Refactoring UI
-### The Problem We Had
-**Before**: Using `rust-light` (#774936) and mid-tone colors on dark backgrounds
-- Contrast ratio: ~3:1 (fails WCAG AA)
-- Text appeared washed out and difficult to read
-- Violated the principle of using grey/mid-tones on colored backgrounds
-**After**: Using `cream-lightest` (#EDC4B3) and `cream-light` (#E6B8A2) on dark backgrounds
+### Our Implementation
+Using `cream-lightest` (#EDC4B3) and `cream-light` (#E6B8A2) on dark backgrounds:
 - Contrast ratio: 8.2:1 (passes WCAG AAA)
 - Text is crisp and clearly readable
 - Colors are from the same warm hue family as the coffee/cream palette
-## Text Color Fixes Applied
-### Body Text in Dark Mode
+## Text Color Implementation
+### Body Text
 ```css
-/* Before (Poor Contrast - WRONG) */
-.text-brown-dark.dark\:text-rust-light {
-  color: #774936; /* Only 3:1 contrast on #38160D background */
-}
-
-/* After (High Contrast - CORRECT) */
-.text-brown-dark.dark\:text-cream-lightest {
+.text-cream-lightest {
   color: #EDC4B3; /* 8.2:1 contrast on #38160D background */
 }
 ```
 
-### Secondary Text in Dark Mode
+### Secondary Text
 ```css
-/* Before */
-color: #6E4230 (rust) /* 2.5:1 contrast - FAILS */
-
-/* After */
-color: #E6B8A2 (cream-light) /* 7.1:1 contrast - PASSES AAA */
+.text-cream-light {
+  color: #E6B8A2; /* 7.1:1 contrast - PASSES AAA */
+}
 ```
 
-### Footer Text in Dark Mode
+### Footer Text
 ```css
-/* Before */
-color: #E6B8A2 (cream-light) /* 7:1 contrast - good */
-
-/* After */
-color: #EDC4B3 (cream-lightest) /* 9:1 contrast - even better */
+.text-cream-lightest {
+  color: #EDC4B3; /* 9:1 contrast - excellent */
+}
 ```
 
-## Updated Text Color Mapping
-| Context | Light Mode | Dark Mode (OLD ❌) | Dark Mode (NEW ✅) | Contrast Ratio |
-|---------|-----------|-------------------|-------------------|----------------|
-| **Headings** | brown-darkest (#774936) | rust-light (#774936) | **white (#FFFFFF)** | 13.5:1 ✓✓✓ |
-| **Body text** | brown-dark (#8A5A44) | rust-light (#774936) | **cream-lightest (#EDC4B3)** | 8.2:1 ✓✓✓ |
-| **Secondary text** | brown (#9D6B53) | rust (#6E4230) | **cream-light (#E6B8A2)** | 7.1:1 ✓✓✓ |
-| **Footer text** | cream-light (#E6B8A2) | cream-light (#E6B8A2) | **cream-lightest (#EDC4B3)** | 9:1 ✓✓✓ |
+## Text Color Mapping
+| Context | Color | Contrast Ratio |
+|---------|-------|----------------|
+| **Headings** | white (#FFFFFF) | 13.5:1 ✓✓✓ |
+| **Body text** | cream-lightest (#EDC4B3) | 8.2:1 ✓✓✓ |
+| **Secondary text** | cream-light (#E6B8A2) | 7.1:1 ✓✓✓ |
+| **Footer text** | cream-lightest (#EDC4B3) | 9:1 ✓✓✓ |
 ## Refactoring UI Principles Summary
 ### 1. Color Selection Based on Hue, Not Grey
 - ❌ Don't reduce opacity to create lighter text
@@ -223,11 +160,10 @@ color: #EDC4B3 (cream-lightest) /* 9:1 contrast - even better */
 - ✅ Pick colors from the same hue family as the background
 - ✅ Adjust saturation and lightness for hierarchy
 **Applied**: Dark backgrounds (coffee tones) → Light text (cream tones from same warm hue family)
-### 2. Flip the Contrast
-> "Accessibility doesn't require sacrificing aesthetics—flip the contrast."
-- Light backgrounds → Dark text
+### 2. High Contrast Text
+> "Accessibility doesn't require sacrificing aesthetics—use high contrast."
 - Dark backgrounds → Light/white text
-- **Never** use mid-tones on mid-tones
+- **Never** use mid-tones on dark backgrounds
 **Applied**: Coffee backgrounds (#38160D) → Cream text (#EDC4B3) = 8.2:1 contrast
 ### 3. Emphasize by De-emphasizing
 - Make primary content stand out by making secondary content lighter
@@ -249,7 +185,7 @@ color: #EDC4B3 (cream-lightest) /* 9:1 contrast - even better */
 ### WCAG Compliance Levels
 - **AA**: 4.5:1 for body text, 3:1 for large text
 - **AAA**: 7:1 for body text, 4.5:1 for large text
-### Our Results (Dark Mode)
+### Our Results
 | Element | Background | Text Color | Ratio | Status |
 |---------|-----------|------------|-------|--------|
 | Body text | coffee-darker (#38160D) | cream-lightest (#EDC4B3) | **8.2:1** | AAA ✓✓✓ |
@@ -257,10 +193,10 @@ color: #EDC4B3 (cream-lightest) /* 9:1 contrast - even better */
 | Headings | coffee-darker (#38160D) | white (#FFFFFF) | **13.5:1** | AAA ✓✓✓ |
 | Footer text | almost-black (#260701) | cream-lightest (#EDC4B3) | **9.0:1** | AAA ✓✓✓ |
 | Cards | mahogany-light (#653A2A) | cream-light (#E6B8A2) | **6.8:1** | AAA ✓✓✓ |
-**Result**: All text now passes WCAG AAA standards while maintaining the warm coffee aesthetic!
+**Result**: All text passes WCAG AAA standards while maintaining the warm coffee aesthetic!
 ## Key Takeaways from Refactoring UI
 1. **Never use grey text on colored backgrounds** - Use colors from the same hue family
-2. **Flip contrast completely** - Dark on light, light on dark (no mid-tones on mid-tones)
+2. **Use high contrast text** - Light text on dark backgrounds (no mid-tones)
 3. **Test contrast ratios** - Aim for 7:1+ (AAA) not just 4.5:1 (AA)
 4. **Hierarchy through intensity** - Primary text brightest, secondary slightly dimmer
 5. **Preserve brand colors** - Refactoring UI is about application, not changing the palette
@@ -374,10 +310,10 @@ Material Design uses shadows to indicate depth and hierarchy along the z-axis.
 - **Dropdown Menus**: Level 3
 - **Modals/Dialogs**: Level 5
 - **FAB (Floating Action Button)**: Level 3 (resting), Level 4 (hover)
-### Dark Mode Adjustments
-In dark mode, reduce shadow opacity by 50% or increase elevation levels for better visibility.
+### Shadow Adjustments
+Shadows use higher opacity for better visibility on dark backgrounds.
 ```css
-.dark .shadow-lg {
+.shadow-lg {
     box-shadow: 0px 2px 6px rgba(0,0,0,0.6), 0px 8px 16px 6px rgba(0,0,0,0.3);
 }
 ```
@@ -386,34 +322,34 @@ In dark mode, reduce shadow opacity by 50% or increase elevation levels for bett
 Material Design 3 provides button hierarchy through visual emphasis.
 #### Button Types
 **1. Filled Button (Highest Emphasis)**
-- Background: Primary color (brown-medium / mahogany)
+- Background: Primary color (mahogany)
 - Text: White
 - Elevation: Level 1, Level 2 on hover
 - Use: Primary actions (Submit, Checkout, Sign Up)
 ```html
-<button class="bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+<button class="bg-mahogany hover:bg-espresso-light text-white px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
     Primary Action
 </button>
 ```
 **2. Outlined Button (Medium Emphasis)**
 - Background: Transparent
-- Border: 2px solid primary color
-- Text: Primary color
+- Border: 2px solid cream-light
+- Text: cream-light
 - Elevation: None, Level 1 on hover
 - Use: Secondary actions (Cancel, Learn More)
 ```html
-<button class="border-2 border-brown-medium dark:border-mahogany text-brown-medium dark:text-rust-light px-6 py-3 rounded-lg hover:bg-terracotta-light dark:hover:bg-espresso transition-all duration-300">
+<button class="border-2 border-cream-light text-cream-light px-6 py-3 rounded-lg hover:bg-espresso transition-all duration-300">
     Secondary Action
 </button>
 ```
 **3. Text Button (Low Emphasis)**
 - Background: Transparent
 - Border: None
-- Text: Primary color
+- Text: cream-light
 - Elevation: None
 - Use: Tertiary actions (Skip, Dismiss)
 ```html
-<button class="text-brown-medium dark:text-rust-light px-6 py-3 rounded-lg hover:bg-terracotta-light dark:hover:bg-mahogany transition-all duration-300">
+<button class="text-cream-light px-6 py-3 rounded-lg hover:bg-mahogany transition-all duration-300">
     Text Action
 </button>
 ```
@@ -429,29 +365,29 @@ Material Design 3 provides button hierarchy through visual emphasis.
 Material 3 cards come in three variants: **Elevated**, **Filled**, and **Outlined**.
 #### Card Types
 **1. Elevated Card (Default)**
-- Background: White (light) / mahogany-light (dark)
+- Background: mahogany-light
 - Elevation: Level 1, Level 2 on hover
 - Border: None
 ```html
-<div class="bg-white dark:bg-mahogany-light rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-6">
+<div class="bg-mahogany-light rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-6">
     <!-- Card content -->
 </div>
 ```
 **2. Filled Card**
-- Background: Slightly tinted surface color
+- Background: coffee-dark
 - Elevation: None
 - Border: None
 ```html
-<div class="bg-cream-light dark:bg-coffee-dark rounded-xl p-6">
+<div class="bg-coffee-dark rounded-xl p-6">
     <!-- Card content -->
 </div>
 ```
 **3. Outlined Card**
-- Background: Surface color
+- Background: mahogany-light
 - Elevation: None
-- Border: 1px solid outline color
+- Border: 1px solid espresso
 ```html
-<div class="bg-white dark:bg-mahogany-light rounded-xl border border-clay dark:border-espresso p-6">
+<div class="bg-mahogany-light rounded-xl border border-espresso p-6">
     <!-- Card content -->
 </div>
 ```
@@ -466,11 +402,11 @@ Material Design navigation emphasizes clarity and accessibility.
 #### Top App Bar (Header)
 - **Height**: 64dp desktop (h-16), 56dp mobile (h-14)
 - **Elevation**: Level 2-3 (sticky navigation)
-- **Background**: Primary dark color (brown-darkest / coffee-darkest)
-- **Text color**: White or on-primary color
+- **Background**: coffee-darkest
+- **Text color**: White
 - **Padding**: 16dp horizontal (px-4)
 ```html
-<header class="h-16 bg-brown-darkest dark:bg-coffee-darkest shadow-lg sticky top-0 z-50">
+<header class="h-16 bg-coffee-darkest shadow-lg sticky top-0 z-50">
     <nav class="container mx-auto px-4 h-full flex items-center justify-between">
         <!-- Navigation content -->
     </nav>
@@ -497,19 +433,19 @@ Material Design forms prioritize clarity and usability.
 **Outlined Text Field**
 ```html
 <div class="space-y-2">
-    <label class="block text-sm font-medium text-brown-darkest dark:text-white">
+    <label class="block text-sm font-medium text-white">
         Label
     </label>
-    <input type="text" class="w-full h-14 px-4 rounded-lg border-2 border-clay dark:border-espresso bg-white dark:bg-mahogany text-brown-darkest dark:text-white focus:outline-none focus:ring-2 focus:ring-brown-medium dark:focus:ring-rust-light transition">
+    <input type="text" class="w-full h-14 px-4 rounded-lg border-2 border-espresso bg-mahogany text-white focus:outline-none focus:ring-2 focus:ring-cream-light transition">
 </div>
 ```
 **Filled Text Field**
 ```html
 <div class="space-y-2">
-    <label class="block text-sm font-medium text-brown-darkest dark:text-white">
+    <label class="block text-sm font-medium text-white">
         Label
     </label>
-    <input type="text" class="w-full h-14 px-4 rounded-t-lg bg-cream-light dark:bg-coffee-dark border-b-2 border-clay dark:border-espresso text-brown-darkest dark:text-white focus:outline-none focus:border-brown-medium dark:focus:border-rust-light transition">
+    <input type="text" class="w-full h-14 px-4 rounded-t-lg bg-coffee-dark border-b-2 border-espresso text-white focus:outline-none focus:border-cream-light transition">
 </div>
 ```
 #### Form Specifications
@@ -605,7 +541,7 @@ transition-all duration-300 ease-in-out
 - **Skip links**: Jump to main content
 - **ARIA labels**: Descriptive labels for screen readers
 ```html
-<button aria-label="Close menu" class="focus:outline-none focus:ring-2 focus:ring-brown-medium">
+<button aria-label="Close menu" class="focus:outline-none focus:ring-2 focus:ring-cream-light">
     <span class="material-symbols-outlined">close</span>
 </button>
 ```
@@ -631,9 +567,9 @@ transition-all duration-300 ease-in-out
 - [ ] Dropdowns use Level 3 (shadow-lg)
 - [ ] Modals use Level 5 (shadow-2xl)
 ### ✓ Colors
-- [ ] Preserve Zenith Coffee color palette
+- [ ] Use Zenith Coffee color palette (coffee and cream tones)
 - [ ] Text contrast meets WCAG AAA (7:1+ for body text)
-- [ ] Dark mode uses cream tones on coffee backgrounds
+- [ ] Cream tones on coffee backgrounds for text
 - [ ] Apply Refactoring UI principles (no grey on colored backgrounds)
 - [ ] State layers for interactive elements (hover, focus, active)
 ### ✓ Components
@@ -684,16 +620,9 @@ transition-all duration-300 ease-in-out
 - **Product cards**: Elevated variant with hover effect (transform hover:-translate-y-1)
 - **Navigation**: Dark background with white text for contrast
 - **Hero sections**: Gradient backgrounds with permanent overlay (rgba(0,0,0,0.6))
-### Dark Mode Strategy
-- **Automatic detection**: Respect user's system preference
-- **Manual toggle**: Settings dropdown with dark/light mode switch
-- **Persistent**: Store preference in localStorage
-- **Smooth transition**: 300ms color transition (transition-colors duration-300)
-### Multi-language Support
-- **Languages**: Dutch (default), English, French
-- **Implementation**: data-i18n attributes with JavaScript translation lookup
-- **Storage**: Persist language choice in localStorage
-- **Selector**: Language buttons in settings dropdown
+### Language
+- **Language**: Dutch only
+- **Implementation**: All content in Dutch language
 ### Files Updated with These Guidelines
 - ✅ `index.html` - Homepage with video hero, featured products
 - ✅ `producten.html` - Products page with filtering
@@ -703,10 +632,10 @@ transition-all duration-300 ease-in-out
 - ✅ `winkelmand.html` - Shopping cart page
 ## Document Summary
 This comprehensive design system combines:
-1. **Color Palette** - Warm coffee-themed colors with elegant light/dark mode inversion
+1. **Color Palette** - Warm coffee-themed colors with rich espresso and cream tones
 2. **Color Theory** - Strategic application for hierarchy, contrast, and emotion
-3. **Refactoring UI** - Text contrast fixes for WCAG AAA compliance
+3. **Refactoring UI** - Text contrast implementation for WCAG AAA compliance
 4. **Material Design 3** - Typography, spacing, elevation, components, motion
 5. **Accessibility** - WCAG AAA standards, keyboard navigation, semantic HTML
 6. **Responsive Design** - Mobile-first with Material breakpoints
-**Result**: A cohesive, accessible, beautiful coffee shop website that feels like a morning café in light mode and an evening espresso bar in dark mode, while meeting the highest accessibility standards.
+**Result**: A cohesive, accessible, beautiful coffee shop website that evokes the atmosphere of an intimate evening espresso bar, while meeting the highest accessibility standards.

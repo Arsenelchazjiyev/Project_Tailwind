@@ -10,87 +10,83 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Tailwind Configuration - Custom Color Palette
+        // Tailwind Configuration - Evening Espresso Bar Color Palette
+        // Material Design 3 + Refactoring UI principles applied
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        'cream-lightest': '#EDC4B3',
-                        'cream-light': '#E6B8A2',
-                        'terracotta-light': '#DEAB90',
-                        'terracotta': '#D69F7E',
-                        'clay': '#CD9777',
-                        'clay-medium': '#C38E70',
-                        'brown-medium': '#B07D62',
-                        'brown': '#9D6B53',
-                        'brown-dark': '#8A5A44',
-                        'brown-darkest': '#774936',
-                        'rust-light': '#774936',
-                        'rust': '#6E4230',
-                        'mahogany-light': '#653A2A',
-                        'mahogany': '#5C3324',
-                        'espresso-light': '#532C1E',
-                        'espresso': '#4A2419',
-                        'coffee-dark': '#411D13',
-                        'coffee-darker': '#38160D',
-                        'coffee-darkest': '#2F0E07',
-                        'almost-black': '#260701',
+                        // Text colors (cream tones for high contrast on dark backgrounds)
+                        'cream-lightest': '#EDC4B3',   // Primary text, headings (8.2:1 contrast)
+                        'cream-light': '#E6B8A2',      // Secondary text, nav links (7.1:1 contrast)
+
+                        // Surface & interactive colors (mahogany/espresso tones)
+                        'mahogany-light': '#653A2A',   // Card backgrounds, elevated surfaces
+                        'mahogany': '#5C3324',         // Primary buttons, interactive elements
+                        'espresso-light': '#532C1E',   // Secondary buttons, accents
+                        'espresso': '#4A2419',         // Hover states, borders
+
+                        // Background colors (coffee tones - darkest to lightest)
+                        'coffee-dark': '#411D13',      // Section backgrounds
+                        'coffee-darker': '#38160D',    // Main body background
+                        'coffee-darkest': '#2F0E07',   // Header background
+                        'almost-black': '#260701',     // Footer, maximum depth
                     }
                 }
             }
         }
     </script>
     <style type="text/tailwindcss">
-        #menu-toggle:checked ~ #mobile-menu { display: block; }
-        .settings-dropdown:hover .settings-menu, .settings-menu:hover { display: block; }
-        .settings-menu { margin-top: 0.5rem; }
-        .settings-dropdown::before { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 0.5rem; }
-        .cart-badge { position: absolute; top: -8px; right: -8px; background: #D69F7E; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
-        .dark .cart-badge { background: #5C3324; }
+        /* ===== MOBILE MENU CHECKBOX HACK ===== */
+        /* Shows mobile menu when checkbox is checked */
+        #menu-toggle:checked ~ #mobile-menu {
+            display: block;
+        }
+
+        /* ===== SHOPPING CART BADGE ===== */
+        /* Small notification badge on cart icon */
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #5C3324; /* mahogany - rich, visible but not jarring */
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
-<body class="bg-cream-lightest dark:bg-coffee-darker text-brown-darkest dark:text-white font-sans transition-colors duration-300">
+<!--
+    BODY: Evening Espresso Bar - Main container with dark background and light text
+    - bg-coffee-darker: Main background (#38160D) - Rich, comfortable base
+    - text-cream-lightest: Primary text (#EDC4B3) - High contrast (8.2:1)
+    - Material Design 3: System font stack with fallbacks
+-->
+<body class="bg-coffee-darker text-cream-lightest font-sans" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
 
     <!-- ===== HEADER & NAVIGATION ===== -->
-    <!-- Material Design: Top App Bar with 64dp height, Level 2 elevation -->
-    <header class="bg-brown-darkest dark:bg-coffee-darkest shadow-lg sticky top-0 z-50 transition-colors duration-300">
+    <!-- Material Design: Top App Bar with 64dp height (h-16), Level 2-3 elevation (shadow-lg) -->
+    <!-- Background: coffee-darkest (#2F0E07) - Deep, grounding element -->
+    <header class="bg-coffee-darkest shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-4 h-16 flex items-center justify-between">
                 <div class="flex items-center">
                     <a href="index.html"><img src="assets/images/logo-4.png" alt="Zenith Coffee Logo" class="h-12 md:h-16"></a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-                    <a href="index.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-home">Home</a>
-                    <a href="over-ons.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-about">Over Ons</a>
-                    <a href="producten.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-products">Producten</a>
-                    <a href="contact.html" class="text-cream-light font-semibold transition duration-300" data-i18n="nav-contact">Contact</a>
-                    <a href="vacatures.html" class="text-white hover:text-cream-light transition duration-300 font-medium" data-i18n="nav-careers">Vacatures</a>
+                    <a href="index.html" class="text-white hover:text-cream-light transition duration-300 font-medium">Home</a>
+                    <a href="over-ons.html" class="text-white hover:text-cream-light transition duration-300 font-medium">Over Ons</a>
+                    <a href="producten.html" class="text-white hover:text-cream-light transition duration-300 font-medium">Producten</a>
+                    <a href="contact.html" class="text-cream-light font-semibold transition duration-300">Contact</a>
+                    <a href="vacatures.html" class="text-white hover:text-cream-light transition duration-300 font-medium">Vacatures</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="relative settings-dropdown">
-                        <button aria-label="Settings" class="text-white hover:text-cream-light transition duration-300 flex items-center">
-                            <span class="material-symbols-outlined text-2xl">settings</span>
-                        </button>
-                        <div class="settings-menu hidden absolute right-0 mt-2 w-56 bg-white dark:bg-mahogany-light rounded-lg shadow-xl overflow-hidden border border-gray-200 dark:border-mahogany">
-                            <div class="px-4 py-3 border-b border-gray-200 dark:border-mahogany">
-                                <p class="text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="settings-theme">Thema</p>
-                                <button onclick="toggleDarkMode()" class="w-full flex items-center justify-between px-3 py-2 bg-cream-lightest dark:bg-mahogany rounded hover:bg-terracotta-light dark:hover:bg-espresso-light transition text-brown-darkest dark:text-white">
-                                    <span class="flex items-center gap-2">
-                                        <span class="material-symbols-outlined text-xl dark:hidden">dark_mode</span>
-                                        <span class="material-symbols-outlined text-xl hidden dark:inline">light_mode</span>
-                                        <span class="text-sm" data-i18n="toggle-mode">Donkere Modus</span>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="px-4 py-3">
-                                <p class="text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="settings-language">Taal</p>
-                                <button onclick="changeLanguage('nl')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">Nederlands</button>
-                                <button onclick="changeLanguage('en')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">English</button>
-                                <button onclick="changeLanguage('fr')" class="block w-full text-left px-3 py-2 text-sm text-brown-darkest dark:text-white hover:bg-terracotta-light dark:hover:bg-mahogany rounded transition">Français</button>
-                            </div>
-                        </div>
-                    </div>
                     <a href="winkelmand.html" aria-label="Shopping cart (3 items)" class="relative text-white hover:text-cream-light transition duration-300">
                         <span class="material-symbols-outlined text-2xl">shopping_cart</span>
                         <span class="cart-badge">3</span>
@@ -104,106 +100,106 @@
                 </div>
 
             <!-- Material Design: Navigation Drawer with Level 3 elevation -->
-            <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-16 bg-brown-darkest dark:bg-coffee-darkest shadow-xl border-t border-brown-medium dark:border-coffee-dark py-4 px-4">
-                <a href="index.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-home">Home</a>
-                <a href="over-ons.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-about">Over Ons</a>
-                <a href="producten.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-products">Producten</a>
-                <a href="contact.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-contact">Contact</a>
-                <a href="vacatures.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-careers">Vacatures</a>
-                <a href="winkelmand.html" class="block py-2 text-white hover:text-cream-light transition duration-300" data-i18n="nav-cart">Winkelkar</a>
+            <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-16 bg-coffee-darkest shadow-xl border-t border-coffee-dark py-4 px-4">
+                <a href="index.html" class="block py-2 text-white hover:text-cream-light transition duration-300">Home</a>
+                <a href="over-ons.html" class="block py-2 text-white hover:text-cream-light transition duration-300">Over Ons</a>
+                <a href="producten.html" class="block py-2 text-white hover:text-cream-light transition duration-300">Producten</a>
+                <a href="contact.html" class="block py-2 text-white hover:text-cream-light transition duration-300">Contact</a>
+                <a href="vacatures.html" class="block py-2 text-white hover:text-cream-light transition duration-300">Vacatures</a>
+                <a href="winkelmand.html" class="block py-2 text-white hover:text-cream-light transition duration-300">Winkelkar</a>
             </div>
         </nav>
     </header>
 
     <main>
         <!-- HERO -->
-        <section class="relative py-16 px-4 bg-gradient-to-br from-brown-darkest via-brown to-brown-medium dark:from-almost-black dark:via-coffee-darkest dark:to-coffee-dark transition-colors duration-300">
-            <div class="absolute inset-0 bg-black opacity-20 dark:opacity-40"></div>
+        <section class="relative py-16 px-4 bg-gradient-to-br from-almost-black via-coffee-darkest to-coffee-dark">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="relative z-10 container mx-auto max-w-4xl text-center">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6" data-i18n="contact-title">Neem Contact Op</h1>
-                <p class="text-lg sm:text-xl text-cream-light" data-i18n="contact-subtitle">We horen graag van je! Vul het formulier in of bezoek ons in de winkel.</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">Neem Contact Op</h1>
+                <p class="text-lg sm:text-xl text-cream-light">We horen graag van je! Vul het formulier in of bezoek ons in de winkel.</p>
             </div>
         </section>
 
         <!-- CONTACT FORM & INFO -->
-        <section class="py-16 px-4 bg-cream-light dark:bg-coffee-dark transition-colors duration-300">
+        <section class="py-16 px-4 bg-coffee-dark">
             <div class="container mx-auto max-w-7xl">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <!-- FORM -->
                     <!-- Material Design: Elevated card with Level 2 elevation, 12dp border radius -->
-                    <div class="bg-white dark:bg-mahogany-light rounded-xl shadow-md p-8">
-                        <h2 class="text-3xl font-bold text-brown-darkest dark:text-white mb-6" data-i18n="form-title">Stuur ons een bericht</h2>
+                    <div class="bg-mahogany-light rounded-xl shadow-md p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Stuur ons een bericht</h2>
                         <form class="space-y-6">
                             <div>
-                                <label for="name" class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="form-name">Naam *</label>
-                                <input type="text" id="name" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-brown-medium dark:focus:ring-rust-light transition" placeholder="Uw naam">
+                                <label for="name" class="block text-sm font-semibold text-white mb-2">Naam *</label>
+                                <input type="text" id="name" required class="w-full h-14 px-4 rounded-lg bg-mahogany text-white border border-espresso focus:outline-none focus:ring-2 focus:ring-cream-light transition" placeholder="Uw naam">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="form-email">Email *</label>
-                                <input type="email" id="email" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-brown-medium dark:focus:ring-rust-light transition" placeholder="uw@email.nl">
+                                <label for="email" class="block text-sm font-semibold text-white mb-2">Email *</label>
+                                <input type="email" id="email" required class="w-full h-14 px-4 rounded-lg bg-mahogany text-white border border-espresso focus:outline-none focus:ring-2 focus:ring-cream-light transition" placeholder="uw@email.nl">
                             </div>
                             <div>
-                                <label for="phone" class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="form-phone">Telefoon</label>
-                                <input type="tel" id="phone" class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-brown-medium dark:focus:ring-rust-light transition" placeholder="+32 123 456 789">
+                                <label for="phone" class="block text-sm font-semibold text-white mb-2">Telefoon</label>
+                                <input type="tel" id="phone" class="w-full h-14 px-4 rounded-lg bg-mahogany text-white border border-espresso focus:outline-none focus:ring-2 focus:ring-cream-light transition" placeholder="+32 123 456 789">
                             </div>
                             <div>
-                                <label for="subject" class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="form-subject">Onderwerp *</label>
-                                <input type="text" id="subject" required class="w-full h-14 px-4 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-brown-medium dark:focus:ring-rust-light transition" placeholder="Waar gaat uw bericht over?">
+                                <label for="subject" class="block text-sm font-semibold text-white mb-2">Onderwerp *</label>
+                                <input type="text" id="subject" required class="w-full h-14 px-4 rounded-lg bg-mahogany text-white border border-espresso focus:outline-none focus:ring-2 focus:ring-cream-light transition" placeholder="Waar gaat uw bericht over?">
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-semibold text-brown-darkest dark:text-white mb-2" data-i18n="form-message">Bericht *</label>
-                                <textarea id="message" rows="6" required class="w-full px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white border border-clay dark:border-espresso focus:outline-none focus:ring-2 focus:ring-brown-medium dark:focus:ring-rust-light transition resize-none" placeholder="Schrijf hier uw bericht..."></textarea>
+                                <label for="message" class="block text-sm font-semibold text-white mb-2">Bericht *</label>
+                                <textarea id="message" rows="6" required class="w-full px-4 py-3 rounded-lg bg-mahogany text-white border border-espresso focus:outline-none focus:ring-2 focus:ring-cream-light transition resize-none" placeholder="Schrijf hier uw bericht..."></textarea>
                             </div>
                             <!-- Material Design: Filled button with proper padding and elevation -->
-                            <button type="submit" class="w-full bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-espresso-light text-white font-medium py-4 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-base" data-i18n="form-submit">Verstuur Bericht</button>
+                            <button type="submit" class="w-full bg-mahogany hover:bg-espresso-light text-white font-medium py-4 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-base">Verstuur Bericht</button>
                         </form>
                     </div>
 
                     <!-- INFO & MAP -->
                     <div class="space-y-8">
-                        <div class="bg-white dark:bg-mahogany-light rounded-xl shadow-md p-8">
-                            <h2 class="text-3xl font-bold text-brown-darkest dark:text-white mb-6" data-i18n="info-title">Contactgegevens</h2>
+                        <div class="bg-mahogany-light rounded-xl shadow-md p-8">
+                            <h2 class="text-3xl font-bold text-white mb-6">Contactgegevens</h2>
                             <div class="space-y-6">
                                 <div class="flex items-start gap-4">
-                                    <div class="bg-terracotta dark:bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">location_on</span></div>
+                                    <div class="bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">location_on</span></div>
                                     <div>
-                                        <h3 class="font-bold text-brown-darkest dark:text-white mb-1" data-i18n="info-address">Adres</h3>
-                                        <p class="text-brown-dark dark:text-cream-light">Bakerstreet 33<br>9300 Aalst, België</p>
+                                        <h3 class="font-bold text-white mb-1">Adres</h3>
+                                        <p class="text-cream-light">Bakerstreet 33<br>9300 Aalst, België</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
-                                    <div class="bg-terracotta dark:bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">phone</span></div>
+                                    <div class="bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">phone</span></div>
                                     <div>
-                                        <h3 class="font-bold text-brown-darkest dark:text-white mb-1" data-i18n="info-phone">Telefoon</h3>
-                                        <p class="text-brown-dark dark:text-cream-light">+32 12 345 6789</p>
+                                        <h3 class="font-bold text-white mb-1">Telefoon</h3>
+                                        <p class="text-cream-light">+32 12 345 6789</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
-                                    <div class="bg-terracotta dark:bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">email</span></div>
+                                    <div class="bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">email</span></div>
                                     <div>
-                                        <h3 class="font-bold text-brown-darkest dark:text-white mb-1" data-i18n="info-email">Email</h3>
-                                        <p class="text-brown-dark dark:text-cream-light">contact@zenithcoffee.be</p>
+                                        <h3 class="font-bold text-white mb-1">Email</h3>
+                                        <p class="text-cream-light">contact@zenithcoffee.be</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
-                                    <div class="bg-terracotta dark:bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">schedule</span></div>
+                                    <div class="bg-mahogany p-3 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">schedule</span></div>
                                     <div>
-                                        <h3 class="font-bold text-brown-darkest dark:text-white mb-1" data-i18n="info-hours">Openingstijden</h3>
-                                        <p class="text-brown-dark dark:text-cream-light">
-                                            <span data-i18n="hours-weekdays">Ma-Vr: 08:00 - 18:00</span><br>
-                                            <span data-i18n="hours-saturday">Za: 09:00 - 17:00</span><br>
-                                            <span data-i18n="hours-sunday">Zo: Gesloten</span>
+                                        <h3 class="font-bold text-white mb-1">Openingstijden</h3>
+                                        <p class="text-cream-light">
+                                            Ma-Vr: 08:00 - 18:00<br>
+                                            Za: 09:00 - 17:00<br>
+                                            Zo: Gesloten
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-mahogany-light rounded-xl shadow-md overflow-hidden h-80">
-                            <div class="w-full h-full bg-gradient-to-br from-clay to-terracotta dark:from-espresso dark:to-coffee-dark flex items-center justify-center">
+                        <div class="bg-mahogany-light rounded-xl shadow-md overflow-hidden h-80">
+                            <div class="w-full h-full bg-gradient-to-br from-espresso to-coffee-dark flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <span class="material-symbols-outlined text-6xl mb-4">map</span>
-                                    <p class="text-lg font-semibold" data-i18n="map-placeholder"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1685.238426539711!2d4.034397565482444!3d50.937832216760775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bd573d955797%3A0xfa8df898c3f1530c!2sKOP%20koffiezaak!5e1!3m2!1sen!2sbe!4v1768594256106!5m2!1sen!2sbe" width="616" height="375" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
-                                    <p class="text-sm" data-i18n="map-description">Integreer hier Google Maps</p>
+                                    <p class="text-lg font-semibold"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1685.238426539711!2d4.034397565482444!3d50.937832216760775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3bd573d955797%3A0xfa8df898c3f1530c!2sKOP%20koffiezaak!5e1!3m2!1sen!2sbe!4v1768594256106!5m2!1sen!2sbe" width="616" height="375" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+                                    <p class="text-sm">Integreer hier Google Maps</p>
                                 </div>
                             </div>
                         </div>
@@ -214,74 +210,58 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-brown-darkest dark:bg-almost-black text-white py-12 px-4 transition-colors duration-300">
+    <footer class="bg-almost-black text-white py-12 px-4">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">Zenith Coffee</h3>
-                    <p class="text-cream-light dark:text-cream-lightest text-sm" data-i18n="footer-about">Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.</p>
+                    <p class="text-cream-lightest text-sm">Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4" data-i18n="footer-contact-title">Contact</h3>
-                    <ul class="space-y-2 text-cream-light dark:text-cream-lightest text-sm">
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-cream-lightest text-sm">
                         <li>📍 Bakerstreet 33, Aalst</li>
                         <li>📞 +32 12 345 6789</li>
                         <li>✉️ contact@zenithcoffee.be</li>
-                        <li>🕒 <span data-i18n="footer-hours">Ma-Vr: 08:00 - 18:00</span></li>
+                        <li>🕒 Ma-Vr: 08:00 - 18:00</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4" data-i18n="footer-links-title">Snelle Links</h3>
-                    <ul class="space-y-2 text-cream-light dark:text-cream-lightest text-sm">
-                        <li><a href="over-ons.html" class="hover:text-white transition duration-300" data-i18n="nav-about">Over Ons</a></li>
-                        <li><a href="producten.html" class="hover:text-white transition duration-300" data-i18n="nav-products">Producten</a></li>
-                        <li><a href="vacatures.html" class="hover:text-white transition duration-300" data-i18n="nav-careers">Vacatures</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition duration-300" data-i18n="nav-contact">Contact</a></li>
+                    <h3 class="text-xl font-bold mb-4">Snelle Links</h3>
+                    <ul class="space-y-2 text-cream-lightest text-sm">
+                        <li><a href="over-ons.html" class="hover:text-white transition duration-300">Over Ons</a></li>
+                        <li><a href="producten.html" class="hover:text-white transition duration-300">Producten</a></li>
+                        <li><a href="vacatures.html" class="hover:text-white transition duration-300">Vacatures</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition duration-300">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4" data-i18n="footer-follow">Volg Ons</h3>
+                    <h3 class="text-xl font-bold mb-4">Volg Ons</h3>
                     <div class="flex space-x-4 mb-6">
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a>
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a>
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter"><i class="fab fa-twitter text-white"></i></a>
-                        <a href="#" class="w-10 h-10 bg-brown-medium hover:bg-brown dark:bg-mahogany dark:hover:bg-mahogany-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-mahogany hover:bg-espresso-light rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-mahogany hover:bg-espresso-light rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-mahogany hover:bg-espresso-light rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="w-10 h-10 bg-mahogany hover:bg-espresso-light rounded-full flex items-center justify-center transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-white"></i></a>
                     </div>
                     <div>
-                        <h4 class="font-semibold mb-2" data-i18n="footer-newsletter">Nieuwsbrief</h4>
+                        <h4 class="font-semibold mb-2">Nieuwsbrief</h4>
                         <form class="flex flex-col sm:flex-row gap-2">
-                            <input type="email" placeholder="Uw email" class="flex-1 px-4 py-3 rounded-lg bg-cream-lightest dark:bg-mahogany text-brown-darkest dark:text-white focus:outline-none focus:ring-2 focus:ring-terracotta dark:focus:ring-mahogany-light transition-all duration-300" data-i18n-placeholder="footer-email-placeholder">
-                            <button type="submit" class="bg-terracotta hover:bg-clay dark:bg-mahogany dark:hover:bg-mahogany-light text-white px-6 py-3 rounded-lg font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300" data-i18n="footer-subscribe">Aanmelden</button>
+                            <input type="email" placeholder="Uw email" class="flex-1 px-4 py-3 rounded-lg bg-mahogany text-white placeholder-cream-light focus:outline-none focus:ring-2 focus:ring-cream-light transition-all duration-300">
+                            <button type="submit" class="bg-mahogany hover:bg-espresso-light text-white px-6 py-3 rounded-lg font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300">Aanmelden</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-brown-medium dark:border-coffee-dark pt-6 text-center text-cream-light dark:text-cream-lightest text-sm">
-                <p data-i18n="footer-copyright">&copy; 2026 Zenith Coffee. Alle rechten voorbehouden.</p>
+            <div class="border-t border-coffee-dark pt-6 text-center text-cream-lightest text-sm">
+                <p>&copy; 2026 Zenith Coffee. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        function toggleDarkMode() { document.documentElement.classList.toggle('dark'); localStorage.setItem('darkMode', document.documentElement.classList.contains('dark')); }
-        if (localStorage.getItem('darkMode') === 'true') { document.documentElement.classList.add('dark'); }
-
-        const translations = {
-            nl: { 'nav-home': 'Home', 'nav-about': 'Over Ons', 'nav-products': 'Producten', 'nav-contact': 'Contact', 'nav-careers': 'Vacatures', 'nav-cart': 'Winkelkar', 'settings-theme': 'Thema', 'settings-language': 'Taal', 'toggle-mode': 'Donkere Modus', 'contact-title': 'Neem Contact Op', 'contact-subtitle': 'We horen graag van je! Vul het formulier in of bezoek ons in de winkel.', 'form-title': 'Stuur ons een bericht', 'form-name': 'Naam *', 'form-email': 'Email *', 'form-phone': 'Telefoon', 'form-subject': 'Onderwerp *', 'form-message': 'Bericht *', 'form-submit': 'Verstuur Bericht', 'info-title': 'Contactgegevens', 'info-address': 'Adres', 'info-phone': 'Telefoon', 'info-email': 'Email', 'info-hours': 'Openingstijden', 'hours-weekdays': 'Ma-Vr: 08:00 - 18:00', 'hours-saturday': 'Za: 09:00 - 17:00', 'hours-sunday': 'Zo: Gesloten', 'map-placeholder': 'Kaart Placeholder', 'map-description': 'Integreer hier Google Maps', 'footer-about': 'Premium koffie voor echte liefhebbers. Sinds 2020 leveren wij de beste koffiebonen uit de hele wereld.', 'footer-contact-title': 'Contact', 'footer-hours': 'Ma-Vr: 08:00 - 18:00', 'footer-links-title': 'Snelle Links', 'footer-follow': 'Volg Ons', 'footer-newsletter': 'Nieuwsbrief', 'footer-email-placeholder': 'Uw email', 'footer-subscribe': 'Aanmelden', 'footer-copyright': '© 2026 Zenith Coffee. Alle rechten voorbehouden.' },
-            en: { 'nav-home': 'Home', 'nav-about': 'About Us', 'nav-products': 'Products', 'nav-contact': 'Contact', 'nav-careers': 'Careers', 'nav-cart': 'Shopping Cart', 'settings-theme': 'Theme', 'settings-language': 'Language', 'toggle-mode': 'Dark Mode', 'contact-title': 'Get In Touch', 'contact-subtitle': 'We\'d love to hear from you! Fill out the form or visit our store.', 'form-title': 'Send us a message', 'form-name': 'Name *', 'form-email': 'Email *', 'form-phone': 'Phone', 'form-subject': 'Subject *', 'form-message': 'Message *', 'form-submit': 'Send Message', 'info-title': 'Contact Information', 'info-address': 'Address', 'info-phone': 'Phone', 'info-email': 'Email', 'info-hours': 'Opening Hours', 'hours-weekdays': 'Mon-Fri: 08:00 - 18:00', 'hours-saturday': 'Sat: 09:00 - 17:00', 'hours-sunday': 'Sun: Closed', 'map-placeholder': 'Map Placeholder', 'map-description': 'Integrate Google Maps here', 'footer-about': 'Premium coffee for true enthusiasts. Since 2020, we deliver the finest coffee beans from around the world.', 'footer-contact-title': 'Contact', 'footer-hours': 'Mon-Fri: 08:00 - 18:00', 'footer-links-title': 'Quick Links', 'footer-follow': 'Follow Us', 'footer-newsletter': 'Newsletter', 'footer-email-placeholder': 'Your email', 'footer-subscribe': 'Subscribe', 'footer-copyright': '© 2026 Zenith Coffee. All rights reserved.' },
-            fr: { 'nav-home': 'Accueil', 'nav-about': 'À Propos', 'nav-products': 'Produits', 'nav-contact': 'Contact', 'nav-careers': 'Carrières', 'nav-cart': 'Panier', 'settings-theme': 'Thème', 'settings-language': 'Langue', 'toggle-mode': 'Mode Sombre', 'contact-title': 'Contactez-Nous', 'contact-subtitle': 'Nous aimerions avoir de vos nouvelles ! Remplissez le formulaire ou visitez notre magasin.', 'form-title': 'Envoyez-nous un message', 'form-name': 'Nom *', 'form-email': 'Email *', 'form-phone': 'Téléphone', 'form-subject': 'Sujet *', 'form-message': 'Message *', 'form-submit': 'Envoyer le Message', 'info-title': 'Coordonnées', 'info-address': 'Adresse', 'info-phone': 'Téléphone', 'info-email': 'Email', 'info-hours': 'Heures d\'ouverture', 'hours-weekdays': 'Lun-Ven: 08:00 - 18:00', 'hours-saturday': 'Sam: 09:00 - 17:00', 'hours-sunday': 'Dim: Fermé', 'map-placeholder': 'Carte Placeholder', 'map-description': 'Intégrer Google Maps ici', 'footer-about': 'Café premium pour les vrais passionnés. Depuis 2020, nous livrons les meilleurs grains de café du monde entier.', 'footer-contact-title': 'Contact', 'footer-hours': 'Lun-Ven: 08:00 - 18:00', 'footer-links-title': 'Liens Rapides', 'footer-follow': 'Suivez-Nous', 'footer-newsletter': 'Newsletter', 'footer-email-placeholder': 'Votre email', 'footer-subscribe': 'S\'abonner', 'footer-copyright': '© 2026 Zenith Coffee. Tous droits réservés.' }
-        };
-
-        function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang] && translations[lang][key]) { el.textContent = translations[lang][key]; } });
-            const emailInput = document.querySelector('[data-i18n-placeholder]');
-            if (emailInput && translations[lang]['footer-email-placeholder']) { emailInput.placeholder = translations[lang]['footer-email-placeholder']; }
-            localStorage.setItem('language', lang);
-        }
-
-        const savedLang = localStorage.getItem('language') || 'nl';
-        if (savedLang !== 'nl') { changeLanguage(savedLang); }
+        // Zenith Coffee - Material Design 3 + Refactoring UI
+        // Dutch language only, "Evening Espresso Bar" theme permanently
+        // No language switching or dark mode toggle needed
     </script>
 
 </body>
