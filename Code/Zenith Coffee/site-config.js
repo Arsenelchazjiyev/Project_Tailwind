@@ -14,7 +14,7 @@ const SITE_CONFIG = {
 
     // ===== CONTACT INFO =====
     contact: {
-        address: "bakerstreet 33, aalst",
+        address: "Bakerstreet 221B, aalst",
         phone: "+32 12 345 6789",
         email: "contact@zenithcoffee.be",
         hours: "Ma-Vr: 08:00 - 18:00"
